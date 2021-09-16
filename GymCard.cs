@@ -7,7 +7,7 @@ using UnboundLib.Cards;
 using UnityEngine;
 using UnboundLib;
 
-namespace Zom.Cards
+namespace ZomC_Cards.Cards
 {
     public class GymCard : CustomCard
     {
@@ -16,28 +16,22 @@ namespace Zom.Cards
         }
 
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
-        {
-            gun.damage *= 1.5f;
-            characterStats.sizeMultiplier *= 1.5f;
-            data.maxHealth += 50;
-            characterStats.movementSpeed *= .7f;
-            gun.reloadTime += .5f;
-        }
+        {}
 
         public override void OnRemoveCard()
-        {
-            throw new NotImplementedException();
-        }
+        {}
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-            throw new NotImplementedException();
+            gun.reloadTimeAdd += .5f;
+            gun.damage *= 1.5f;
+            statModifiers.sizeMultiplier *= 1.5f;
+            statModifiers.health *= 1.25f;
+            statModifiers.movementSpeed *= .7f;
         }
 
         protected override UnityEngine.GameObject GetCardArt()
-        {
-            throw new NotImplementedException();
-        }
+        { return null; }
 
         protected override string GetDescription()
         {
