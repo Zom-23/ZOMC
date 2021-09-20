@@ -24,6 +24,9 @@ namespace ZomC_Cards
     [BepInDependency("pykess.rounds.plugins.cardchoicespawnuniquecardpatch", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("pykess.rounds.plugins.moddingutils", BepInDependency.DependencyFlags.HardDependency)]
 
+    [BepInPlugin(ModId, ModName, Version)] //Make it an acutal plugin
+    [BepInProcess("Rounds.exe")]
+
     public class ZomCards : BaseUnityPlugin
     {
         private const string ModId = "com.Zom.rounds.card";

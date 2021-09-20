@@ -1,0 +1,15 @@
+{
+	"name": "ZOMC",
+	"version_number": "2.2.0",
+	"website_url": "https://github.com/Zom-23/ZOMC",
+	"description": "Adds a few new cards to the game",
+	"dependencies": [
+		"BepInEx-BepInExPack_ROUNDS-5.4.1100",
+		"willis81808-UnboundLib-2.7.1",
+		"Pykess-ModdingUtils-0.1.6",
+		"Pykess-CardChoiceSpawnUniqueCardPatch-0.1.4",
+		"willis81801-MMHook-1.0.0".
+		"Pykess-TemporaryStatsPatch-0.0.0"
+		]
+}
+		
