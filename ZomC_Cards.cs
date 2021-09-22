@@ -15,6 +15,7 @@ using UnboundLib.Utils;
 using ZomC_Cards.Cards;
 using Photon.Pun;
 using CardChoiceSpawnUniqueCardPatch.CustomCategories;
+using ZomC_Cards.MonoBehaviours;
 
 
 namespace ZomC_Cards
@@ -38,6 +39,7 @@ namespace ZomC_Cards
         {
             UnityEngine.Debug.Log("[ZOMC] Loading Cards");
             CustomCard.BuildCard<GymCard>();
+            CustomCard.BuildCard<DoubleVision>();
         }
     }
 }
