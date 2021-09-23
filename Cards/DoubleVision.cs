@@ -12,7 +12,7 @@ namespace ZomC_Cards.Cards
 {
     class DoubleVision : CustomCard
     {
-        private DoubleVisionMono doubleVision;
+        DoubleVisionMono doubleVision;
 
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -27,8 +27,8 @@ namespace ZomC_Cards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
             cardInfo.allowMultiple = false;
-            gun.reloadTimeAdd += .25f;
-            gun.multiplySpread *= 1.5f;
+            gun.reloadTimeAdd = .25f;
+            gun.spread = 1.5f;
         }
 
      

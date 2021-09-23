@@ -23,11 +23,11 @@ namespace ZomC_Cards.Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-            gun.reloadTimeAdd += .5f;
-            gun.damage *= 1.5f;
-            statModifiers.sizeMultiplier *= 1.5f;
-            statModifiers.health *= 1.25f;
-            statModifiers.movementSpeed *= .7f;
+            gun.reloadTimeAdd = .5f;
+            gun.damage = 1.5f;
+            statModifiers.sizeMultiplier = 1.5f;
+            statModifiers.health = 1.25f;
+            statModifiers.movementSpeed = .7f;
         }
 
         protected override UnityEngine.GameObject GetCardArt()
@@ -51,35 +51,35 @@ namespace ZomC_Cards.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "1.5x",
+                    amount = "+50%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 },
                 new CardInfoStat
                 {
                     positive = true,
                     stat = "Size",
-                    amount = "1.5x",
+                    amount = "+50%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 },
                 new CardInfoStat
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+50",
+                    amount = "+50%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
                 },
                 new CardInfoStat
                 {
                     positive = false,
                     stat = "Speed",
-                    amount = ".7",
+                    amount = "-30%",
                     simepleAmount = CardInfoStat.SimpleAmount.slightlyLower
                 },
                 new CardInfoStat
                 {
                     positive = false,
                     stat = "Reload Speed",
-                    amount = "+ .5s",
+                    amount = "+.5s",
                     simepleAmount = CardInfoStat.SimpleAmount.slightlyLower
                 }
             };
