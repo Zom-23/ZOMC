@@ -85,5 +85,10 @@ namespace ZomC_Cards.Cards
         {
             return "Double Vision";
         }
+
+        public override string GetModName()
+        {
+            return "ZOMC";
+        }
     }
 }
