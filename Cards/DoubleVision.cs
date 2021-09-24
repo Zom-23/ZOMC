@@ -12,16 +12,16 @@ namespace ZomC_Cards.Cards
 {
     class DoubleVision : CustomCard
     {
-        DoubleVisionMono doubleVision;
+        DoubleVisionMono doubleVision = null;
+        System.Random random = new System.Random();
 
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            doubleVision = player.gameObject.AddComponent<DoubleVisionMono>();
+            player.gameObject.AddComponent<DoubleVisionMono>();
         }
 
         public override void OnRemoveCard()
         {
-            Destroy(this.doubleVision);
         }
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
@@ -29,6 +29,7 @@ namespace ZomC_Cards.Cards
             cardInfo.allowMultiple = false;
             gun.reloadTimeAdd = .25f;
             gun.spread = 1.5f;
+            gun.ShootPojectileAction = (Action<GameObject>)Delegate.Combine(gun.ShootPojectileAction, doubleVision.shootAction);
         }
 
      

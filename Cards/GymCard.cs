@@ -24,10 +24,10 @@ namespace ZomC_Cards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
             gun.reloadTimeAdd = .5f;
-            gun.damage = 1.5f;
-            statModifiers.sizeMultiplier = 1.5f;
+            gun.damage = 1.3f;
+            statModifiers.sizeMultiplier = 1.3f;
             statModifiers.health = 1.25f;
-            statModifiers.movementSpeed = .7f;
+            statModifiers.movementSpeed = .8f;
         }
 
         protected override UnityEngine.GameObject GetCardArt()
@@ -51,28 +51,28 @@ namespace ZomC_Cards.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+50%",
+                    amount = "+30%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 },
                 new CardInfoStat
                 {
                     positive = true,
                     stat = "Size",
-                    amount = "+50%",
+                    amount = "+30%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 },
                 new CardInfoStat
                 {
                     positive = true,
                     stat = "Health",
-                    amount = "+50%",
+                    amount = "+25%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
                 },
                 new CardInfoStat
                 {
                     positive = false,
                     stat = "Speed",
-                    amount = "-30%",
+                    amount = "-20%",
                     simepleAmount = CardInfoStat.SimpleAmount.slightlyLower
                 },
                 new CardInfoStat
