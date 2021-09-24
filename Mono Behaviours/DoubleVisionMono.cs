@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnboundLib.Cards;
 using UnityEngine;
+using ModdingUtils.MonoBehaviours;
 using UnityEngine.UI;
 using UnboundLib;
 
@@ -16,16 +17,16 @@ namespace ZomC_Cards.MonoBehaviours
         private Gun gun;
         private WeaponHandler weaponHandler;
         private Player player;
-        private Action<GameObject> shootAction;
+        public Action<GameObject> shootAction;
 
 
 
-        private void Start()
+        void Start()
         {
             data = GetComponentInParent<CharacterData>();
         }
 
-        private void Update()
+        void Update()
         {
             if (!player)
             {
@@ -47,12 +48,12 @@ namespace ZomC_Cards.MonoBehaviours
             return (float)val;
         }
 
-        private void OnShootProjectileAction(GameObject obj)
+        void OnShootProjectileAction(GameObject obj)
         {
             gun.projectileSize *= NextFloat(0f, 2f);
         }
 
-        private void OnDestroy()
+        void OnDestroy()
         {
             gun.ShootPojectileAction = (Action<GameObject>)Delegate.Remove(gun.ShootPojectileAction, shootAction);
         }
