@@ -31,6 +31,7 @@ namespace ZomC_Cards.Cards
             gun.reloadTimeAdd = .25f;
             gun.spread = 1.5f;
             gun.ShootPojectileAction = (Action<GameObject>)Delegate.Combine(gun.ShootPojectileAction, doubleVision.shootAction);
+            gun.numberOfProjectiles = 2;
         }
 
      
