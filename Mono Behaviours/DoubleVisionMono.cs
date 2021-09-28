@@ -1,13 +1,15 @@
-﻿using System;
+﻿using UnityEngine;
+using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnboundLib.Cards;
-using UnityEngine;
 using ModdingUtils.MonoBehaviours;
 using UnityEngine.UI;
 using UnboundLib;
+
 
 namespace ZomC_Cards.MonoBehaviours
 {
@@ -28,8 +30,6 @@ namespace ZomC_Cards.MonoBehaviours
 
         void Update()
         {
-            if (!player)
-            {
                 if (!(data is null))
                 {
                     player = data.player;
@@ -38,7 +38,6 @@ namespace ZomC_Cards.MonoBehaviours
                     shootAction = new Action<GameObject>(this.OnShootProjectileAction);
                     gun.ShootPojectileAction = (Action<GameObject>)Delegate.Combine(gun.ShootPojectileAction, shootAction);
                 }
-            }
         }
 
         static float NextFloat(double v1, double v2)
