@@ -8,11 +8,12 @@ using UnityEngine;
 using UnboundLib;
 using ZomC_Cards.MonoBehaviours;
 
+
 namespace ZomC_Cards.Cards
 {
     class DoubleVision : CustomCard
     {
-        DoubleVisionMono doubleVision = null;
+        DoubleVisionMono doubleVision = new DoubleVisionMono();
         System.Random random = new System.Random();
 
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)

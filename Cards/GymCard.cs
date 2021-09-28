@@ -7,6 +7,7 @@ using UnboundLib.Cards;
 using UnityEngine;
 using UnboundLib;
 
+
 namespace ZomC_Cards.Cards
 {
     public class GymCard : CustomCard
