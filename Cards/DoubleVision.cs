@@ -18,7 +18,6 @@ namespace ZomC_Cards.Cards
 
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            player.gameObject.AddComponent<DoubleVisionMono>();
         }
 
         public override void OnRemoveCard()
@@ -29,9 +28,9 @@ namespace ZomC_Cards.Cards
         {
             cardInfo.allowMultiple = false;
             gun.reloadTimeAdd = .25f;
-            gun.spread = 1.5f;
-            gun.ShootPojectileAction = (Action<GameObject>)Delegate.Combine(gun.ShootPojectileAction, doubleVision.shootAction);
+            gun.spread = .05f;
             gun.numberOfProjectiles = 2;
+            gun.projectileSize = (float)(random.NextDouble() * (2 - 0) + 0);
         }
 
      
