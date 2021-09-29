@@ -31,6 +31,7 @@ namespace ZomC_Cards.Cards
             gun.spread = .05f;
             gun.numberOfProjectiles = 2;
             gun.projectileSize = (float)(random.NextDouble() * (2 - 0) + 0);
+            gun.ShootPojectileAction = doubleVision.shootAction;
         }
 
      
