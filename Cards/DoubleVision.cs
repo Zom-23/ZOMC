@@ -13,7 +13,6 @@ namespace ZomC_Cards.Cards
 {
     class DoubleVision : CustomCard
     {
-        DoubleVisionMono doubleVision = new DoubleVisionMono();
         System.Random random = new System.Random();
 
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -26,12 +25,15 @@ namespace ZomC_Cards.Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-            cardInfo.allowMultiple = false;
-            gun.reloadTimeAdd = .25f;
-            gun.spread = .05f;
-            gun.numberOfProjectiles = 2;
-            gun.projectileSize = (float)(random.NextDouble() * (2 - 0) + 0);
-            gun.ShootPojectileAction = doubleVision.shootAction;
+            List<ObjectsToSpawn> objectsToSpawn = gun.objectsToSpawn.ToList();
+            ObjectsToSpawn doubleVi = new ObjectsToSpawn { };
+            doubleVi.AddToProjectile = new GameObject("DoubleViSpawner", typeof(DoubleViSpawner));
+            objectsToSpawn.Add(doubleVi);
+
+            gun.objectsToSpawn = objectsToSpawn.ToArray();
+            gun.multiplySpread = .005f;
+            gun.evenSpread = .5f;
+            gun.projectileSize = (float)(random.NextDouble() + 1);
         }
 
      
@@ -66,7 +68,7 @@ namespace ZomC_Cards.Cards
                 {
                     positive = false,
                     stat = "Spread",
-                    amount = "150%",
+                    amount = "+50%",
                     simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
                 },
                 new CardInfoStat()
