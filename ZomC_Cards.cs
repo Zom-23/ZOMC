@@ -20,6 +20,7 @@ using ZomC_Cards.MonoBehaviours;
 
 namespace ZomC_Cards
 {
+    
     //Mods required for this to work
     [BepInDependency("com.willis.rounds.unbound", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("pykess.rounds.plugins.cardchoicespawnuniquecardpatch", BepInDependency.DependencyFlags.HardDependency)]
@@ -40,6 +41,7 @@ namespace ZomC_Cards
             UnityEngine.Debug.Log("[ZOMC] Loading Cards");
             CustomCard.BuildCard<GymCard>();
             CustomCard.BuildCard<DoubleVision>();
+            CustomCard.BuildCard<FlappyBullets>();
         }
     }
 }
