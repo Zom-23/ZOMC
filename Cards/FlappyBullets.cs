@@ -13,6 +13,10 @@ namespace ZomC_Cards
 {
     class FlappyBullets : CustomCard
     {
+        private Camera mainCam;
+        private Transform parent;
+
+
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {  
         }
@@ -23,9 +27,17 @@ namespace ZomC_Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
+            Vector3 pos = this.mainCam.WorldToScreenPoint(this.transform.position);
+            pos.x /= (float)Screen.width;
+            pos.y /= (float)Screen.height;
+
+
             gun.gravity = .5f;
             gun.speedMOnBounce = 0f;
-            gun.waveMovement = true;
+            gun.ExecuteAfterSeconds(1, () =>
+            {
+                this.parent.transform.position = this.mainCam.ScreenToWorldPoint(new Vector3(pos.x, pos.y + 1, pos.z));
+            });
         }
 
         protected override GameObject GetCardArt()
@@ -51,7 +63,7 @@ namespace ZomC_Cards
                 {
                     positive = false,
                     stat = "Bounce",
-                    amount = "Lose all Speed",
+                    amount = "Lose all Speed on",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat()
