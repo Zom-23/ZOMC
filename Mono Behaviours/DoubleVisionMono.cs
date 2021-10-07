@@ -11,6 +11,7 @@ using HarmonyLib;
 
 namespace ZomC_Cards.MonoBehaviours
 {
+    
     public class DoubleViAssets
     {
         private static GameObject _doubleVi = null;
@@ -69,12 +70,12 @@ namespace ZomC_Cards.MonoBehaviours
     public class DoubleViEffect : MonoBehaviour, IPunInstantiateMagicCallback
     {
         private readonly float DoubleViDamageMult = 1f;
-
+        System.Random random = new System.Random();
         private Player player;
         private Gun gun;
         private Gun newGun;
         private ProjectileHit projectile;
-        private int layersToAdd = 0;
+        private int layersToAdd = 1;
 
         public void OnPhotonInstantiate(Photon.Pun.PhotonMessageInfo info)
         {
@@ -99,7 +100,7 @@ namespace ZomC_Cards.MonoBehaviours
             this.player = this.projectile.ownPlayer;
             this.gun = this.player.GetComponent<Holding>().holdable.GetComponent<Gun>();
 
-            this.layersToAdd = this.player.data.currentCards.Where(card => card.cardName == "Comb").Count();
+            this.layersToAdd = this.player.data.currentCards.Where(card => card.cardName == "Double Vision").Count();
 
             // create a new gun for the spawnbulletseffect
             this.newGun = this.player.gameObject.AddComponent<DoubleViGun>();
@@ -123,6 +124,7 @@ namespace ZomC_Cards.MonoBehaviours
             effect.SetInitialDelay(0f);
 
             // copy gun stats over
+            this.gun.projectileSize = (float)(random.NextDouble() + 1);
             SpawnBulletsEffect.CopyGunStats(this.gun, newGun);
             newGun.objectsToSpawn = newGun.objectsToSpawn.Where(obj => obj.AddToProjectile.GetComponent<DoubleViSpawner>() == null).ToArray();
             newGun.bursts = 1;
@@ -131,6 +133,7 @@ namespace ZomC_Cards.MonoBehaviours
 
             // set the gun of the spawnbulletseffect
             effect.SetGun(newGun);
+            effect.SetGun(this.gun);
         }
     }
     class DoubleViGun : Gun
