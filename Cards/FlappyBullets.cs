@@ -34,9 +34,10 @@ namespace ZomC_Cards
 
             gun.gravity = .5f;
             gun.speedMOnBounce = 0f;
-            gun.ExecuteAfterSeconds(1, () =>
+            gun.randomBounces = 1;
+            gun.ExecuteAfterSeconds((float).5, () =>
             {
-                this.parent.transform.position = this.mainCam.ScreenToWorldPoint(new Vector3(pos.x, pos.y + 1, pos.z));
+                this.parent.transform.position = this.mainCam.ScreenToWorldPoint(new Vector3(pos.x, pos.y + 100, pos.z));
             });
         }
 
