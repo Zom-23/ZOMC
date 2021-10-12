@@ -8,7 +8,7 @@ using UnityEngine;
 using UnboundLib;
 using ZomC_Cards.MonoBehaviours;
 
-//Prevent others from firing for 3 seconds upon round start
+//Silences others for 3 seconds upon round start
 
 namespace ZomC_Cards.Cards
 {
@@ -20,7 +20,15 @@ namespace ZomC_Cards.Cards
 
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            
+            Player[] players = PlayerManager.instance.players.ToArray();
+            foreach (Player oppPlayer in players)
+            {
+                if(oppPlayer.playerID != player.playerID)
+                {
+                    oppPlayer.data.isSilenced = true;
+                    oppPlayer.data.silenceTime = 3f;
+                }
+            }
         }
 
         public override void OnRemoveCard()
@@ -28,7 +36,6 @@ namespace ZomC_Cards.Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-            
         }
 
         protected override UnityEngine.GameObject GetCardArt()
@@ -36,7 +43,7 @@ namespace ZomC_Cards.Cards
 
         protected override string GetDescription()
         {
-            return "Everyone stop shooting";
+            return "Silence everyone else";
         }
 
         protected override CardInfo.Rarity GetRarity()
