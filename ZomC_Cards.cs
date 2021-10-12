@@ -43,6 +43,7 @@ namespace ZomC_Cards
             CustomCard.BuildCard<DoubleVision>();
             CustomCard.BuildCard<FlappyBullets>();
             CustomCard.BuildCard<TrainBullets>();
+            CustomCard.BuildCard<MassSilence>();
         }
     }
 }
