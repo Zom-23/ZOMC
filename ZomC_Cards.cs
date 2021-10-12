@@ -42,6 +42,7 @@ namespace ZomC_Cards
             CustomCard.BuildCard<GymCard>();
             CustomCard.BuildCard<DoubleVision>();
             CustomCard.BuildCard<FlappyBullets>();
+            CustomCard.BuildCard<TrainBullets>();
         }
     }
 }
