@@ -24,13 +24,12 @@ namespace ZomC_Cards.Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-            gun.evenSpread = 0;
             gun.ammo = 3;
             gun.spread = 0;
-            gun.timeBetweenBullets = .1f;
-            gun.bursts = 1;
+            gun.evenSpread = 0;
             gun.numberOfProjectiles = gun.ammo;
             gun.reloadTimeAdd = .75f;
+            gun.timeBetweenBullets = .2f;
         }
 
         protected override UnityEngine.GameObject GetCardArt()
