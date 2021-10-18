@@ -69,13 +69,12 @@ namespace ZomC_Cards.MonoBehaviours
     [RequireComponent(typeof(PhotonView))]
     public class DoubleViEffect : MonoBehaviour, IPunInstantiateMagicCallback
     {
-        private readonly float DoubleViDamageMult = 1f;
         System.Random random = new System.Random();
         private Player player;
         private Gun gun;
         private Gun newGun;
         private ProjectileHit projectile;
-        private int layersToAdd = 1;
+        private int layersToAdd = 0;
 
         public void OnPhotonInstantiate(Photon.Pun.PhotonMessageInfo info)
         {
@@ -113,7 +112,7 @@ namespace ZomC_Cards.MonoBehaviours
                 BindingFlags.NonPublic, null, this.gun, new object[] { 0, 0, 0f })) * Vector3.forward);
 
             List<Vector3> positions = new List<Vector3>() { };
-            for (int b = 1; b < (this.layersToAdd) + 1; b++)
+            for (int b = 0; b < (this.layersToAdd); b++)
             {
                 positions.Add(this.projectile.transform.position + (0.25f) * ((b % 2 == 0) ? (float)b : -((float)b + 1f)) * this.projectile.transform.right);
             }
@@ -129,7 +128,6 @@ namespace ZomC_Cards.MonoBehaviours
             newGun.objectsToSpawn = newGun.objectsToSpawn.Where(obj => obj.AddToProjectile.GetComponent<DoubleViSpawner>() == null).ToArray();
             newGun.bursts = 1;
             newGun.numberOfProjectiles = 1;
-            newGun.damage *= this.DoubleViDamageMult;
 
             // set the gun of the spawnbulletseffect
             effect.SetGun(newGun);
