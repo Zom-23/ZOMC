@@ -27,18 +27,17 @@ namespace ZomC_Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-            Vector3 pos = this.mainCam.WorldToScreenPoint(this.transform.position);
-            pos.x /= (float)Screen.width;
+            Vector3 pos = this.mainCam.WorldToScreenPoint(transform.position);
             pos.y /= (float)Screen.height;
-
 
             gun.gravity = .5f;
             gun.speedMOnBounce = 0f;
             gun.randomBounces = 1;
             gun.ExecuteAfterSeconds((float).5, () =>
             {
-                this.parent.transform.position = this.mainCam.ScreenToWorldPoint(new Vector3(pos.x, pos.y + 100, pos.z));
+                transform.SetYPosition(pos.y + 100);
             });
+            
         }
 
         protected override GameObject GetCardArt()
