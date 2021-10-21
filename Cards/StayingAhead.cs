@@ -7,35 +7,34 @@ using UnboundLib.Cards;
 using UnityEngine;
 using UnboundLib;
 using ZomC_Cards.MonoBehaviours;
-
-//Silences others for 3 seconds upon round start
+using UnboundLib.GameModes;
 
 namespace ZomC_Cards.Cards
 {
-    public class MassSilence : CustomCard
+    class StayingAhead : CustomCard
     {
-        public MassSilence()
-        {
-        }
-
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            MSilenceMono silenceEffect = player.gameObject.GetOrAddComponent<MSilenceMono>();
+            PointCheckMono winEffect = player.gameObject.GetOrAddComponent<PointCheckMono>();
         }
 
         public override void OnRemoveCard()
-        { }
-
-        public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
         }
 
-        protected override UnityEngine.GameObject GetCardArt()
-        { return null; }
+        public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
+        {
+            
+        }
+
+        protected override GameObject GetCardArt()
+        {
+            return null;
+        }
 
         protected override string GetDescription()
         {
-            return "Silence everyone else";
+            return "More damage and faster reload if you are winning!";
         }
 
         protected override CardInfo.Rarity GetRarity()
@@ -45,23 +44,17 @@ namespace ZomC_Cards.Cards
 
         protected override CardInfoStat[] GetStats()
         {
-            return new CardInfoStat[]
-            {
-                new CardInfoStat
-                {
-
-                }
-            };
+            return null;
         }
 
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.MagicPink;
+            return CardThemeColor.CardThemeColorType.DefensiveBlue;
         }
 
         protected override string GetTitle()
         {
-            return "Mass Silence";
+            return "Staying Ahead";
         }
 
         public override string GetModName()
