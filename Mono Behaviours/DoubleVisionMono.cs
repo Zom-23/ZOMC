@@ -131,9 +131,9 @@ namespace ZomC_Cards.MonoBehaviours
 
             // set the gun of the spawnbulletseffect
             effect.SetGun(newGun);
-            effect.SetGun(this.gun);
+            //effect.SetGun(this.gun);
             newGun.objectsToSpawn = new ObjectsToSpawn[] { PreventRecursion.stopRecursionObjectToSpawn };
-            this.gun.objectsToSpawn = new ObjectsToSpawn[] { PreventRecursion.stopRecursionObjectToSpawn };
+            //this.gun.objectsToSpawn = new ObjectsToSpawn[] { PreventRecursion.stopRecursionObjectToSpawn };
         }
     }
     class DoubleViGun : Gun
