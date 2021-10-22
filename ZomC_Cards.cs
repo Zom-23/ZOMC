@@ -44,6 +44,7 @@ namespace ZomC_Cards
             CustomCard.BuildCard<FlappyBullets>();
             CustomCard.BuildCard<TrainBullets>();
             CustomCard.BuildCard<MassSilence>();
+            CustomCard.BuildCard<StayingAhead>();
         }
     }
 }
