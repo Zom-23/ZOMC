@@ -13,6 +13,9 @@ using ZomC_Cards.Cards;
 using HarmonyLib;
 using System.Collections;
 using System;
+//A mono used to check how many points each person has
+//It is used by the card Staying Ahead
+
 
 namespace ZomC_Cards.MonoBehaviours
 {
@@ -40,7 +43,7 @@ namespace ZomC_Cards.MonoBehaviours
         {
             if (!happen)
             {
-                GameModeManager.AddHook(GameModeHooks.HookRoundStart, MyHook);
+                GameModeManager.AddHook(GameModeHooks.HookPointStart, MyHook);
                 this.happen = true;
             }
         }

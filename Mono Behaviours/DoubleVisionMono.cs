@@ -8,6 +8,9 @@ using System.Linq;
 using UnboundLib.Utils;
 using ZomC_Cards.Cards;
 using HarmonyLib;
+//A mono to create a new gun that fires along side the original gun
+//Used by card Double Vision
+
 
 namespace ZomC_Cards.MonoBehaviours
 {

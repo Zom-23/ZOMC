@@ -9,6 +9,8 @@ using UnboundLib.Utils;
 using ZomC_Cards.Cards;
 using HarmonyLib;
 //Borrowed from PCE PacBullets
+//A mono to change the Y position of a bullet
+//Used by card Flappy Bullets
 
 namespace ZomC_Cards.MonoBehaviours
 {

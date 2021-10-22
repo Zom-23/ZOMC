@@ -13,6 +13,8 @@ using ZomC_Cards.Cards;
 using HarmonyLib;
 using System.Collections;
 using System;
+//A Mono to silence all players not on the team of the person activating this
+//Used by the card Mass Silence
 
 namespace ZomC_Cards.MonoBehaviours
 {
