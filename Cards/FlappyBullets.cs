@@ -13,9 +13,6 @@ namespace ZomC_Cards
 {
     class FlappyBullets : CustomCard
     {
-        private Camera mainCam;
-        private Transform parent;
-
 
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {  
@@ -27,17 +24,17 @@ namespace ZomC_Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-            Vector3 pos = this.mainCam.WorldToScreenPoint(transform.position);
-            pos.y /= (float)Screen.height;
 
             gun.gravity = .5f;
             gun.speedMOnBounce = 0f;
             gun.randomBounces = 1;
-            gun.ExecuteAfterSeconds((float).5, () =>
-            {
-                transform.SetYPosition(pos.y + 100);
-            });
-            
+
+            ObjectsToSpawn flapBulletObj = new ObjectsToSpawn() { };
+            flapBulletObj.AddToProjectile = new GameObject("FlappyMono", typeof(FlappyMono));
+            List<ObjectsToSpawn> objectsToSpawn = gun.objectsToSpawn.ToList();
+            objectsToSpawn.Add(flapBulletObj);
+            gun.objectsToSpawn = objectsToSpawn.ToArray();
+
         }
 
         protected override GameObject GetCardArt()
