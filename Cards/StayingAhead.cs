@@ -8,6 +8,7 @@ using UnityEngine;
 using UnboundLib;
 using ZomC_Cards.MonoBehaviours;
 using UnboundLib.GameModes;
+//Increases damage and decreases relod if you have more points than all your opponents
 
 namespace ZomC_Cards.Cards
 {

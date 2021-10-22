@@ -7,6 +7,7 @@ using UnboundLib.Cards;
 using UnityEngine;
 using UnboundLib;
 
+//Increases damage and size while slowing speed and reload
 
 namespace ZomC_Cards.Cards
 {

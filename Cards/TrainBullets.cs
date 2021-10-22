@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnboundLib.Cards;
 using UnityEngine;
 using UnboundLib;
-
+//makes you fire your entire clip in a single burst with one bullet following the other
 
 namespace ZomC_Cards.Cards
 {

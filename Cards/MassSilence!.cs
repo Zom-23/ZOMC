@@ -8,7 +8,7 @@ using UnityEngine;
 using UnboundLib;
 using ZomC_Cards.MonoBehaviours;
 
-//Silences others for 3 seconds upon round start
+//Silences others for 3 seconds upon point start
 
 namespace ZomC_Cards.Cards
 {
