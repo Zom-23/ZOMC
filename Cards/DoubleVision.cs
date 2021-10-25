@@ -33,7 +33,6 @@ namespace ZomC_Cards.Cards
             gun.objectsToSpawn = objectsToSpawn.ToArray();
             gun.multiplySpread = .1f;
             //gun.evenSpread = .5f;
-            gun.projectileSize = (float)(random.NextDouble() + 1);
         }
 
      
