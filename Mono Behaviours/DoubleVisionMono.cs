@@ -115,7 +115,7 @@ namespace ZomC_Cards.MonoBehaviours
                 BindingFlags.NonPublic, null, this.gun, new object[] { 0, 0, 0f })) * Vector3.forward);
 
             List<Vector3> positions = new List<Vector3>() { };
-            for (int b = 0; b < (this.layersToAdd); b++)
+            for (int b = 0; b < (this.layersToAdd + gun.objectsToSpawn.Count()); b++)
             {
                 positions.Add(this.projectile.transform.position + (0.25f) * ((b % 2 == 0) ? (float)b : -((float)b + 1f)) * this.projectile.transform.right);
             }
@@ -126,9 +126,12 @@ namespace ZomC_Cards.MonoBehaviours
             effect.SetInitialDelay(0f);
 
             // copy gun stats over
-            this.gun.projectileSize = (float)(random.NextDouble() + 1);
+            float sizeM = (float)(random.NextDouble() + 1);
+            float sizeM2 = (float)(random.NextDouble() + 1);
             SpawnBulletsEffect.CopyGunStats(this.gun, newGun);
             newGun.objectsToSpawn = newGun.objectsToSpawn.Where(obj => obj.AddToProjectile.GetComponent<DoubleViSpawner>() == null).ToArray();
+            this.gun.projectileSize *= sizeM;
+            newGun.projectileSize *= sizeM2;
             newGun.bursts = 1;
             newGun.numberOfProjectiles = 1;
 
