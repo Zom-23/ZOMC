@@ -17,15 +17,17 @@ namespace ZomC_Cards.Cards
         }
 
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
-        { }
+        {
+            gun.ammo += 3;
+            gun.numberOfProjectiles = gun.ammo;
+            gun.bursts = 1;
+        }
 
         public override void OnRemoveCard()
         { }
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-            gun.ammo = 3;
-            gun.numberOfProjectiles = gun.ammo;
             gun.reloadTimeAdd = .75f;
             gun.timeBetweenBullets = .1f;
         }
