@@ -113,7 +113,7 @@ namespace ZomC_Cards.MonoBehaviours
 
             gun.ExecuteAfterSeconds((float).5, () =>
             {
-                transform.SetYPosition(pos.y + 10);
+                this.parent.transform.position = this.mainCam.ScreenToWorldPoint(new Vector3(pos.x, pos.y +10, pos.z));
             });
         }
     }
