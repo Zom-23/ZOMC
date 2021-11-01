@@ -7,7 +7,8 @@ using UnboundLib.Cards;
 using UnityEngine;
 using UnboundLib;
 //Previous idea: makes you fire your entire clip in a single burst with one bullet following the other
-//Now: Greatly increases attack speed similar to "Spray" and removes all spread with a set time between bullets
+//Bursts = number of times it fires per attack actions
+//number of projectiles = number of bullets per burst
 
 namespace ZomC_Cards.Cards
 {
@@ -21,11 +22,11 @@ namespace ZomC_Cards.Cards
         {
             gun.ammo += 3;
             gun.timeBetweenBullets = .05f;
-            gun.attackSpeed = float.MaxValue;
+            //gun.attackSpeed = float.MinValue;
             gun.spread = 0;
             gun.evenSpread = 0;
-            //gun.numberOfProjectiles = gun.ammo;
-            //gun.bursts = 1;
+            gun.numberOfProjectiles = 1;
+            gun.bursts = gun.ammo;
         }
 
         public override void OnRemoveCard()
