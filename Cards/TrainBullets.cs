@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using UnboundLib.Cards;
 using UnityEngine;
 using UnboundLib;
-//makes you fire your entire clip in a single burst with one bullet following the other
+//Previous idea: makes you fire your entire clip in a single burst with one bullet following the other
+//Now: Greatly increases attack speed similar to "Spray" and removes all spread with a set time between bullets
 
 namespace ZomC_Cards.Cards
 {
@@ -19,8 +20,12 @@ namespace ZomC_Cards.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             gun.ammo += 3;
-            gun.numberOfProjectiles = gun.ammo;
-            gun.bursts = 1;
+            gun.timeBetweenBullets = .05f;
+            gun.attackSpeed = float.MaxValue;
+            gun.spread = 0;
+            gun.evenSpread = 0;
+            //gun.numberOfProjectiles = gun.ammo;
+            //gun.bursts = 1;
         }
 
         public override void OnRemoveCard()
@@ -29,7 +34,6 @@ namespace ZomC_Cards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
             gun.reloadTimeAdd = .75f;
-            gun.timeBetweenBullets = .1f;
         }
 
         protected override UnityEngine.GameObject GetCardArt()
@@ -37,7 +41,7 @@ namespace ZomC_Cards.Cards
 
         protected override string GetDescription()
         {
-            return "Choo Choo";
+            return "Bullets follow one another";
         }
 
         protected override CardInfo.Rarity GetRarity()
@@ -62,13 +66,6 @@ namespace ZomC_Cards.Cards
                     stat = "ammo",
                     amount = "+3",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
-                },
-                new CardInfoStat
-                {
-                    positive = true,
-                    stat = "Burst",
-                    amount = "All",
-                    simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 },
                 new CardInfoStat
                 {
