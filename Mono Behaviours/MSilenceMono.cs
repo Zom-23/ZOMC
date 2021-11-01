@@ -38,7 +38,7 @@ namespace ZomC_Cards.MonoBehaviours
         {
             if(!happen)
             {
-                GameModeManager.AddHook(GameModeHooks.HookRoundStart, MyHook);
+                GameModeManager.AddHook(GameModeHooks.HookBattleStart, MyHook);
                 this.happen = true;
             }
         }
