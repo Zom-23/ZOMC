@@ -7,7 +7,7 @@ using UnboundLib.Cards;
 using UnityEngine;
 using UnboundLib;
 using ZomC_Cards.MonoBehaviours;
-//Causes bullets to "jump" every half second
+//Causes bullets to "jump" every .1 seconds
 
 namespace ZomC_Cards
 {
