@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
@@ -70,6 +72,10 @@
     <Reference Include="PhotonWebSocket">
       <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\PhotonWebSocket.dll</HintPath>
     </Reference>
+    <Reference Include="SonigonAudioEngine.Runtime, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\SonigonAudioEngine.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration" />
@@ -84,6 +90,10 @@
     <Reference Include="System.Xml" />
     <Reference Include="UnboundLib">
       <HintPath>..\Libs\UnboundLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.dll</HintPath>
@@ -282,10 +292,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CharacterStatModifiers.cs" />
     <Compile Include="DoubleVision.cs" />
     <Compile Include="DoubleVisionMono.cs" />
     <Compile Include="FlappyBullets.cs" />
     <Compile Include="FlappyMono.cs" />
+    <Compile Include="MinionCardBase.cs" />
     <Compile Include="MSilenceMono.cs" />
     <Compile Include="PointCheckMono.cs" />
     <Compile Include="PreventRecursion.cs" />
@@ -294,6 +306,7 @@
     <Compile Include="StayingAhead.cs" />
     <Compile Include="TrainBullets.cs" />
     <Compile Include="Turret.cs" />
+    <Compile Include="TurretMono.cs" />
     <Compile Include="ZomC_Cards.cs" />
     <Compile Include="GymCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
