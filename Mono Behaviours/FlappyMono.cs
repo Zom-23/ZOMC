@@ -111,9 +111,10 @@ namespace ZomC_Cards.MonoBehaviours
             pos.x /= (float)Screen.width;
             pos.y /= (float)Screen.height;
 
-            gun.ExecuteAfterSeconds((float).5, () =>
+            gun.ExecuteAfterSeconds((float).1, () =>
             {
-                this.parent.transform.position = this.mainCam.ScreenToWorldPoint(new Vector3(pos.x, pos.y +10, pos.z));
+                pos.y += 10;
+                this.parent.transform.position = this.mainCam.ScreenToWorldPoint(new Vector3(pos.x * (float)Screen.width, pos.y * (float)Screen.height, pos.z));
             });
         }
     }
