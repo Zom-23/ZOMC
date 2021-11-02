@@ -11,3 +11,4 @@ Flappy Bullets
 Train Bullets
 Mass Silence
 Staying Ahead
+Adaptive Magazines
