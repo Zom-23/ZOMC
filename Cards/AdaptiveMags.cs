@@ -15,6 +15,7 @@ namespace ZomC_Cards.Cards
     {
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            AdaptMagMono adaptMags = player.gameObject.GetOrAddComponent<AdaptMagMono>();
             gunAmmo.maxAmmo = 3;
         }
 
