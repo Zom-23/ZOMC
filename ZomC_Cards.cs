@@ -45,6 +45,7 @@ namespace ZomC_Cards
             CustomCard.BuildCard<TrainBullets>();
             CustomCard.BuildCard<MassSilence>();
             CustomCard.BuildCard<StayingAhead>();
+            CustomCard.BuildCard<AdaptiveMags>();
         }
     }
 }
