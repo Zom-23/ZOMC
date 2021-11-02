@@ -20,7 +20,7 @@ namespace ZomC_Cards.Cards
 
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            gun.ammo += 3;
+            gunAmmo.maxAmmo += 3;
             gun.timeBetweenBullets = .05f;
             //gun.attackSpeed = float.MinValue;
             gun.spread = 0;

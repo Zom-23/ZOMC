@@ -17,6 +17,8 @@ using ModdingUtils;
 using ModdingUtils.Extensions;
 using ZomC_Cards.MonoBehaviours;
 
+//Put on hold indefinitely
+
 namespace ZomC_Cards.Cards
 {
     public class Turret : MinionCardBase
