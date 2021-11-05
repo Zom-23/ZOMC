@@ -292,6 +292,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdaptiveMags.cs" />
     <Compile Include="CharacterStatModifiers.cs" />
     <Compile Include="DoubleVision.cs" />
     <Compile Include="DoubleVisionMono.cs" />
