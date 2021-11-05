@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnboundLib.Cards;
 using UnityEngine;
 using UnboundLib;
-//Previous idea: makes you fire your entire clip in a single burst with one bullet following the other
+//makes you fire your entire clip in a single burst with one bullet following the other
 //Bursts = number of times it fires per attack actions
 //number of projectiles = number of bullets per burst
 
@@ -14,6 +14,7 @@ namespace ZomC_Cards.Cards
 {
     public class TrainBullets : CustomCard
     {
+
         public TrainBullets()
         {
         }
@@ -26,7 +27,7 @@ namespace ZomC_Cards.Cards
             gun.spread = 0;
             gun.evenSpread = 0;
             gun.numberOfProjectiles = 1;
-            gun.bursts = gun.ammo;
+            gun.bursts = gunAmmo.maxAmmo;
         }
 
         public override void OnRemoveCard()

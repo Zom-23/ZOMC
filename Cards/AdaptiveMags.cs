@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using UnboundLib.Cards;
 using UnityEngine;
 using UnboundLib;
+using ZomC_Cards.MonoBehaviours;
+using ZomC_Cards.Cards;
 
 //Increases the maximum ammo after emptying your magazine, resets between rounds
 
@@ -13,11 +15,20 @@ namespace ZomC_Cards.Cards
 {
     class AdaptiveMags : CustomCard
     {
+
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            AdaptMagMono adaptMags = player.gameObject.GetOrAddComponent<AdaptMagMono>();
+            
             gunAmmo.maxAmmo = 3;
+            characterStats.OutOfAmmpAction += IncreaseAmmo;
+
+            void IncreaseAmmo(int i)
+            {
+                gun.ammo++;
+            }
         }
+
+        
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
@@ -69,5 +80,7 @@ namespace ZomC_Cards.Cards
         {
             return "Adaptive Magazines";
         }
+
+        
     }
 }
