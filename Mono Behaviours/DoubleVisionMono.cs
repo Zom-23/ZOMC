@@ -102,7 +102,7 @@ namespace ZomC_Cards.MonoBehaviours
             this.player = this.projectile.ownPlayer;
             this.gun = this.player.GetComponent<Holding>().holdable.GetComponent<Gun>();
 
-            this.layersToAdd = this.player.data.currentCards.Where(card => card.cardName == "Double Vision").Count();
+            this.layersToAdd = (this.player.data.currentCards.Where(card => card.cardName == "Double Vision").Count()) * this.gun.numberOfProjectiles;
 
             // create a new gun for the spawnbulletseffect
             this.newGun = this.player.gameObject.AddComponent<DoubleViGun>();
