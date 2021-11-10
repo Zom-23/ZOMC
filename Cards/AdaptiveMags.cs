@@ -98,6 +98,9 @@ namespace ZomC_Cards.Cards
             return "Adaptive Magazines";
         }
 
-        
+        public override string GetModName()
+        {
+            return "ZOMC";
+        }
     }
 }
