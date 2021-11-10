@@ -46,6 +46,7 @@ namespace ZomC_Cards
             CustomCard.BuildCard<MassSilence>();
             CustomCard.BuildCard<StayingAhead>();
             CustomCard.BuildCard<AdaptiveMags>();
+            CustomCard.BuildCard<MoreIsBetter>();
         }
     }
 }
