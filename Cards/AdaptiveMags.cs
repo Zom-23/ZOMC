@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnboundLib.Cards;
+using UnboundLib.GameModes;
 using UnityEngine;
 using UnboundLib;
 using ZomC_Cards.MonoBehaviours;
 using ZomC_Cards.Cards;
+using System.Collections;
 
 //Increases the maximum ammo after emptying your magazine, resets between rounds
 
@@ -20,20 +22,35 @@ namespace ZomC_Cards.Cards
         {
             
             gunAmmo.maxAmmo = 3;
+            gun.reloadTime *= .5f;
+            GameModeManager.AddHook(GameModeHooks.HookPointStart, MyHook);
+            IEnumerator MyHook(IGameModeHandler gm)
+            {
+                gunAmmo.maxAmmo = 3;
+                yield break;
+            }
+            /*
             characterStats.OutOfAmmpAction += IncreaseAmmo;
-
             void IncreaseAmmo(int i)
             {
-                gun.ammo++;
+                gunAmmo.maxAmmo++;
             }
+            */
         }
 
         
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-            gun.reloadTimeAdd = (float)-(gun.reloadTime * .5);
+            GunAmmo gunAmmo = new GunAmmo();
+            statModifiers.OutOfAmmpAction += IncreaseAmmo;
+            void IncreaseAmmo(int i)
+            {
+                gunAmmo.maxAmmo++;
+            }
+            
         }
+        
 
         protected override GameObject GetCardArt()
         {

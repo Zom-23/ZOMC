@@ -25,7 +25,7 @@ namespace ZomC_Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
 
-            gun.gravity = .5f;
+            gun.gravity = 1.5f;
             gun.speedMOnBounce = 0f;
             gun.randomBounces = 1;
 
@@ -67,8 +67,8 @@ namespace ZomC_Cards
                 {
                     positive = true,
                     stat = "Gravity",
-                    amount = "50%",
-                    simepleAmount = CardInfoStat.SimpleAmount.lower
+                    amount = "+50%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }
