@@ -41,7 +41,7 @@ namespace ZomC_Cards
             UnityEngine.Debug.Log("[ZOMC] Loading Cards");
             CustomCard.BuildCard<GymCard>();
             CustomCard.BuildCard<DoubleVision>();
-            //CustomCard.BuildCard<FlappyBullets>();
+            CustomCard.BuildCard<FlappyBullets>();
             CustomCard.BuildCard<TrainBullets>();
             CustomCard.BuildCard<MassSilence>();
             CustomCard.BuildCard<StayingAhead>();
