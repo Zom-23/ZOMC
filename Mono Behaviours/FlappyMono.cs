@@ -37,6 +37,7 @@ namespace ZomC_Cards.MonoBehaviours
     public class FlappyMono : MonoBehaviour
     {
         private static bool Initialized = false;
+        
 
 
 
@@ -77,6 +78,7 @@ namespace ZomC_Cards.MonoBehaviours
         private Gun gun;
         private ProjectileHit projectile;
         private Camera mainCam;
+        private bool ready = true;
 
         public void OnPhotonInstantiate(Photon.Pun.PhotonMessageInfo info)
         {
@@ -106,16 +108,28 @@ namespace ZomC_Cards.MonoBehaviours
         void Update()
         {
             if (this.parent == null) { return; }
-
+            
             Vector3 pos = this.mainCam.WorldToScreenPoint(this.transform.position);
             pos.x /= (float)Screen.width;
             pos.y /= (float)Screen.height;
-
+            /*
             gun.ExecuteAfterSeconds((float).1, () =>
             {
                 pos.y += (float)(Screen.height * .01);
                 this.parent.transform.position = this.mainCam.ScreenToWorldPoint(new Vector3(pos.x * (float)Screen.width, pos.y * (float)Screen.height, pos.z));
             });
+            */
+
+            if (this.ready)
+            {
+                this.ready = false;
+                gun.ExecuteAfterSeconds((float).1, () =>
+                {
+                    pos.y += (float)(Screen.height * .01);
+                    this.parent.SetYPosition(pos.y);
+                    this.ready = true;
+                });
+            }
         }
     }
 }
