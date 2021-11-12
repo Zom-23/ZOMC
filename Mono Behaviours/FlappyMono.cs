@@ -109,9 +109,7 @@ namespace ZomC_Cards.MonoBehaviours
         {
             if (this.parent == null) { return; }
             
-            Vector3 pos = this.mainCam.WorldToScreenPoint(this.transform.position);
-            pos.x /= (float)Screen.width;
-            pos.y /= (float)Screen.height;
+            
             /*
             gun.ExecuteAfterSeconds((float).1, () =>
             {
@@ -122,6 +120,9 @@ namespace ZomC_Cards.MonoBehaviours
 
             if (this.ready)
             {
+                Vector3 pos = this.mainCam.WorldToScreenPoint(this.transform.position);
+                pos.y /= (float)Screen.height;
+
                 this.ready = false;
                 gun.ExecuteAfterSeconds((float).1, () =>
                 {
