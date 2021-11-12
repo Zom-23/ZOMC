@@ -20,7 +20,7 @@ namespace ZomC_Cards.Cards
 
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            
+            Gun newGun = new Gun();
             gunAmmo.maxAmmo = 3;
             gun.reloadTime *= .5f;
             GameModeManager.AddHook(GameModeHooks.HookPointStart, MyHook);
@@ -29,13 +29,17 @@ namespace ZomC_Cards.Cards
                 gunAmmo.maxAmmo = 3;
                 yield break;
             }
-            /*
+            
             characterStats.OutOfAmmpAction += IncreaseAmmo;
             void IncreaseAmmo(int i)
             {
                 gunAmmo.maxAmmo++;
+                SpawnBulletsEffect.CopyGunStats(gun, newGun);
+                Destroy(gun);
+                gun = player.gameObject.AddComponent<Gun>();
+                SpawnBulletsEffect.CopyGunStats(newGun, gun);
             }
-            */
+            
         }
 
         
