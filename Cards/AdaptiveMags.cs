@@ -36,8 +36,9 @@ namespace ZomC_Cards.Cards
                 gunAmmo.maxAmmo++;
                 SpawnBulletsEffect.CopyGunStats(gun, newGun);
                 Destroy(gun);
-                gun = player.gameObject.AddComponent<Gun>();
                 SpawnBulletsEffect.CopyGunStats(newGun, gun);
+                gun.isProjectileGun = true;
+                player.data.weaponHandler.gun = gun;
             }
             
         }
@@ -46,13 +47,7 @@ namespace ZomC_Cards.Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-            GunAmmo gunAmmo = new GunAmmo();
-            statModifiers.OutOfAmmpAction += IncreaseAmmo;
-            void IncreaseAmmo(int i)
-            {
-                gunAmmo.maxAmmo++;
-            }
-            
+
         }
         
 
