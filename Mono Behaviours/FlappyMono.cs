@@ -79,6 +79,7 @@ namespace ZomC_Cards.MonoBehaviours
         private ProjectileHit projectile;
         private Camera mainCam;
         private bool ready = true;
+        private readonly float jumpHeight = (float)(Screen.height * .01);
 
         public void OnPhotonInstantiate(Photon.Pun.PhotonMessageInfo info)
         {
@@ -124,9 +125,9 @@ namespace ZomC_Cards.MonoBehaviours
                 pos.y /= (float)Screen.height;
 
                 this.ready = false;
-                gun.ExecuteAfterSeconds((float).1, () =>
+                gun.ExecuteAfterSeconds((float).5, () =>
                 {
-                    pos.y += (float)(Screen.height * .01);
+                    pos.y += this.jumpHeight;
                     this.parent.SetYPosition(pos.y);
                     this.ready = true;
                 });
