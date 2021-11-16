@@ -34,7 +34,7 @@ namespace ZomC_Cards.Cards
 
 
             gun.ammo = playernum;
-            statModifiers.health = playernum;
+            statModifiers.health = 1 + (playernum / 10);
         }
 
         protected override GameObject GetCardArt()
@@ -67,7 +67,7 @@ namespace ZomC_Cards.Cards
                 {
                     positive = true,
                     stat = "health",
-                    amount = "+1%",
+                    amount = "+10%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
                 }
             };
