@@ -292,6 +292,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABulletForYou.cs" />
     <Compile Include="AdaptiveMags.cs" />
     <Compile Include="CharacterStatModifiers.cs" />
     <Compile Include="DoubleVision.cs" />
@@ -299,6 +300,7 @@
     <Compile Include="FlappyBullets.cs" />
     <Compile Include="FlappyMono.cs" />
     <Compile Include="MinionCardBase.cs" />
+    <Compile Include="MoreIsBetter.cs" />
     <Compile Include="MSilenceMono.cs" />
     <Compile Include="PointCheckMono.cs" />
     <Compile Include="PreventRecursion.cs" />

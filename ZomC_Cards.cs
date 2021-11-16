@@ -33,7 +33,7 @@ namespace ZomC_Cards
     {
         private const string ModId = "com.Zom.rounds.card";
         private const string ModName = "Zom Cards";
-        public const string Version = "1.1.6"; //(major.minor.patch)
+        public const string Version = "1.1.8"; //(major.minor.patch)
 
         //Start up the Cards!!
         void Start()
@@ -47,6 +47,7 @@ namespace ZomC_Cards
             CustomCard.BuildCard<StayingAhead>();
             CustomCard.BuildCard<AdaptiveMags>();
             CustomCard.BuildCard<MoreIsBetter>();
+            CustomCard.BuildCard<ABulletForYou>();
         }
     }
 }
