@@ -26,8 +26,14 @@ namespace ZomC_Cards.Cards
             //gun.attackSpeed = float.MinValue;
             gun.spread = 0;
             gun.evenSpread = 0;
-            //gun.numberOfProjectiles = 1;
-            //gun.bursts = gunAmmo.maxAmmo;
+            gun.numberOfProjectiles = 1;
+            gun.bursts = gunAmmo.maxAmmo;
+            characterStats.OnReloadDoneAction += setBursts; //Make sure the bursts is always equal to the max ammo by checking it after each reload
+            
+            void setBursts(int i)
+            {
+                gun.bursts = gunAmmo.maxAmmo;
+            }
         }
 
         public override void OnRemoveCard()
@@ -35,10 +41,7 @@ namespace ZomC_Cards.Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-            GunAmmo gunAmmo = new GunAmmo();
             gun.reloadTimeAdd = .75f;
-            gun.bursts = gunAmmo.maxAmmo;
-            gun.numberOfProjectiles = 1;
         }
 
         protected override UnityEngine.GameObject GetCardArt()
