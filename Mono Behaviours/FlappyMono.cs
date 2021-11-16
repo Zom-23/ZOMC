@@ -79,7 +79,7 @@ namespace ZomC_Cards.MonoBehaviours
         private ProjectileHit projectile;
         private Camera mainCam;
         private bool ready = true;
-        private readonly float jumpHeight = (float)(Screen.height * .01);
+        private readonly float jumpHeight = (float)(Screen.height * .01); //1% of the screen
 
         public void OnPhotonInstantiate(Photon.Pun.PhotonMessageInfo info)
         {
@@ -109,21 +109,12 @@ namespace ZomC_Cards.MonoBehaviours
         void Update()
         {
             if (this.parent == null) { return; }
-            
-            
-            /*
-            gun.ExecuteAfterSeconds((float).1, () =>
-            {
-                pos.y += (float)(Screen.height * .01);
-                this.parent.transform.position = this.mainCam.ScreenToWorldPoint(new Vector3(pos.x * (float)Screen.width, pos.y * (float)Screen.height, pos.z));
-            });
-            */
 
             if (this.ready)
             {
                 Vector3 pos = this.mainCam.WorldToScreenPoint(this.transform.position);
-                pos.y /= (float)Screen.height;
-
+                //No need to divide pos.y by the screen height since not working with it directly
+                //If divided by screen height do (pos.y + .01) * Screen.height to have it move 1%
                 this.ready = false;
                 gun.ExecuteAfterSeconds((float).5, () =>
                 {
