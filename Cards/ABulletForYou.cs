@@ -10,7 +10,7 @@ using UnboundLib;
 using ZomC_Cards.MonoBehaviours;
 using ZomC_Cards.Cards;
 using System.Collections;
-
+//Gives an extra bullet and +10% health for each opponent in the game
 
 namespace ZomC_Cards.Cards
 {
