@@ -119,7 +119,10 @@ namespace ZomC_Cards.MonoBehaviours
                 gun.ExecuteAfterSeconds((float).5, () =>
                 {
                     pos.y += this.jumpHeight;
-                    this.parent.SetYPosition(pos.y);
+
+                    this.parent.transform.position = this.mainCam.ScreenToWorldPoint(new Vector3(pos.x, pos.y, pos.z));
+
+                    //this.parent.SetYPosition(pos.y);
                     this.ready = true;
                 });
             }
