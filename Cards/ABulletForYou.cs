@@ -18,23 +18,23 @@ namespace ZomC_Cards.Cards
     {
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            
-        }
-
-        public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
-        {
             int playernum = 0;
             Player[] players = PlayerManager.instance.players.ToArray();
 
-            foreach(Player p in players)
+            foreach (Player p in players)
             {
                 if (p.teamID != gun.player.teamID)
                     playernum++;
             }
 
 
-            gun.ammo = playernum;
-            statModifiers.health = 1 + (playernum / 10);
+            gunAmmo.maxAmmo += playernum;
+            characterStats.health *= 1 + (playernum / 10);
+        }
+
+        public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
+        {
+            
         }
 
         protected override GameObject GetCardArt()

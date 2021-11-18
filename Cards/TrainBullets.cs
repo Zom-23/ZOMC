@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using UnboundLib.Cards;
 using UnityEngine;
 using UnboundLib;
+using UnboundLib.GameModes;
+using System.Collections;
 //makes you fire your entire clip in a single burst with one bullet following the other
 //Bursts = number of times it fires per attack actions
 //number of projectiles = number of bullets per burst
@@ -23,7 +25,6 @@ namespace ZomC_Cards.Cards
         {
             gunAmmo.maxAmmo += 3;
             gun.timeBetweenBullets = .05f;
-            //gun.attackSpeed = float.MinValue;
             gun.spread = 0;
             gun.evenSpread = 0;
             gun.numberOfProjectiles = 1;
@@ -33,6 +34,16 @@ namespace ZomC_Cards.Cards
             void setBursts(int i)
             {
                 gun.bursts = gunAmmo.maxAmmo;
+            }
+
+
+            //Persistence bug fix
+            GameModeManager.AddHook(GameModeHooks.HookGameEnd, MyHook);
+            IEnumerator MyHook(IGameModeHandler gm)
+            {
+                characterStats.OnReloadDoneAction -= setBursts;
+                gun.bursts = 1;
+                yield break;
             }
         }
 
@@ -54,7 +65,7 @@ namespace ZomC_Cards.Cards
 
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Uncommon;
         }
 
         protected override CardInfoStat[] GetStats()

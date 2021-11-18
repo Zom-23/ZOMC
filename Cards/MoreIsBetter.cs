@@ -32,7 +32,7 @@ namespace ZomC_Cards.Cards
             gun.reloadTime *= 1.5f;
             gun.size *= 1.5f;
             gun.spread *= 1.5f;
-            gunAmmo.maxAmmo = (int)(gunAmmo.maxAmmo * .5);
+            gunAmmo.maxAmmo += (int)(gunAmmo.maxAmmo * .5);
             block.cdAdd *= 1.5f;
             characterStats.health *= 1.5f;
             characterStats.gravity *= 1.5f;
@@ -52,7 +52,7 @@ namespace ZomC_Cards.Cards
 
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Uncommon;
+            return CardInfo.Rarity.Rare;
         }
 
         protected override CardInfoStat[] GetStats()

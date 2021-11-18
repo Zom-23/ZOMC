@@ -43,7 +43,6 @@ namespace ZomC_Cards.Cards
             {
                 gunAmmo.maxAmmo++;
                 SpawnBulletsEffect.CopyGunStats(adaptGun, holderGun);
-
                 gun.ExecuteAfterSeconds(gun.reloadTime, () =>
                 {
                     SpawnBulletsEffect.CopyGunStats(holderGun, adaptGun);
@@ -52,8 +51,6 @@ namespace ZomC_Cards.Cards
 
                 
             }
-
-            Destroy(gun);
         }
 
         
