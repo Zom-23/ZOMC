@@ -112,15 +112,14 @@ namespace ZomC_Cards.MonoBehaviours
 
             if (this.ready)
             {
-                Vector3 pos = this.mainCam.WorldToScreenPoint(this.transform.position);
-                //No need to divide pos.y by the screen height since not working with it directly
-                //If divided by screen height do (pos.y + .01) * Screen.height to have it move 1%
+                Vector3 pos = mainCam.WorldToScreenPoint(this.transform.position);
+                pos.y /= Screen.height;
+                pos.x /= Screen.width;
                 this.ready = false;
-                gun.ExecuteAfterSeconds((float).5, () =>
+                gun.ExecuteAfterSeconds((float).3, () =>
                 {
-                    pos.y += this.jumpHeight;
-
-                    this.parent.transform.position = this.mainCam.ScreenToWorldPoint(new Vector3(pos.x, pos.y, pos.z));
+                    pos.y += .01f;
+                    this.parent.transform.position = this.mainCam.ScreenToWorldPoint(new Vector3(pos.x * Screen.width, pos.y * Screen.height, pos.z));
 
                     //this.parent.SetYPosition(pos.y);
                     this.ready = true;
