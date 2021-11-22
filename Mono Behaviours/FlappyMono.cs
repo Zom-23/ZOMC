@@ -37,7 +37,7 @@ namespace ZomC_Cards.MonoBehaviours
     public class FlappyMono : MonoBehaviour
     {
         private static bool Initialized = false;
-        
+
 
 
 
@@ -108,23 +108,9 @@ namespace ZomC_Cards.MonoBehaviours
         }
         void Update()
         {
-            if (this.parent == null) { return; }
-
-            if (this.ready)
-            {
-                Vector3 pos = mainCam.WorldToScreenPoint(this.transform.position);
-                pos.y /= Screen.height;
-                pos.x /= Screen.width;
-                this.ready = false;
-                gun.ExecuteAfterSeconds((float).3, () =>
-                {
-                    pos.y += .01f;
-                    this.parent.transform.position = this.mainCam.ScreenToWorldPoint(new Vector3(pos.x * Screen.width, pos.y * Screen.height, pos.z));
-
-                    //this.parent.SetYPosition(pos.y);
-                    this.ready = true;
-                });
-            }
+            float amplitude = 1f;
+            float frequency = .3f;
+            base.transform.root.position += base.transform.right * Mathf.Cos(Time.time * 10f * frequency) * 10f * amplitude * Time.smoothDeltaTime;
         }
     }
 }
