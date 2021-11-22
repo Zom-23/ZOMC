@@ -7,7 +7,7 @@ using UnboundLib.Cards;
 using UnityEngine;
 using UnboundLib;
 using ZomC_Cards.MonoBehaviours;
-//Causes bullets to "jump" every .1 seconds
+//Causes bullets to "jump" every .3 seconds
 
 namespace ZomC_Cards
 {
@@ -28,12 +28,16 @@ namespace ZomC_Cards
             gun.gravity = 1.5f;
             gun.speedMOnBounce = 0f;
             gun.randomBounces = 1;
+            gun.waveMovement = true;
+            
 
             ObjectsToSpawn flapBulletObj = new ObjectsToSpawn() { };
             flapBulletObj.AddToProjectile = new GameObject("FlappyMono", typeof(FlappyMono));
+            /*
             List<ObjectsToSpawn> objectsToSpawn = gun.objectsToSpawn.ToList();
             objectsToSpawn.Add(flapBulletObj);
             gun.objectsToSpawn = objectsToSpawn.ToArray();
+            */
 
         }
 
