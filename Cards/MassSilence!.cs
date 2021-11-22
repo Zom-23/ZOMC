@@ -28,6 +28,7 @@ namespace ZomC_Cards.Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
+            cardInfo.allowMultiple = false;
         }
 
         protected override UnityEngine.GameObject GetCardArt()
@@ -35,7 +36,7 @@ namespace ZomC_Cards.Cards
 
         protected override string GetDescription()
         {
-            return "Silence everyone else";
+            return "Silence everyone else for 3 seconds on point start!";
         }
 
         protected override CardInfo.Rarity GetRarity()
