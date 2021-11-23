@@ -26,12 +26,12 @@ namespace ZomC_Cards.Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-            List<ObjectsToSpawn> objectsToSpawn = gun.objectsToSpawn.ToList();
+            List<ObjectsToSpawn> objectsToSpawns = new List<ObjectsToSpawn>();
             ObjectsToSpawn doubleVi = new ObjectsToSpawn { };
             doubleVi.AddToProjectile = new GameObject("DoubleViSpawner", typeof(DoubleViSpawner));
-            objectsToSpawn.Add(doubleVi);
+            objectsToSpawns.Add(doubleVi);
+            gun.objectsToSpawn = objectsToSpawns.ToArray();
 
-            gun.objectsToSpawn = objectsToSpawn.ToArray();
             gun.multiplySpread = .1f;
             gun.spread = .25f;
             //gun.evenSpread = .5f;
