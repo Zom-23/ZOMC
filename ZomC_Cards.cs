@@ -48,6 +48,7 @@ namespace ZomC_Cards
             CustomCard.BuildCard<AdaptiveMags>();
             CustomCard.BuildCard<MoreIsBetter>();
             CustomCard.BuildCard<ABulletForYou>();
+            CustomCard.BuildCard<Gluttony>();
         }
     }
 }
