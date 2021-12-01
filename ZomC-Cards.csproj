@@ -306,11 +306,11 @@
     <Compile Include="PointCheckMono.cs" />
     <Compile Include="PreventRecursion.cs" />
     <Compile Include="MassSilence!.cs" />
+    <Compile Include="Sloth.cs" />
     <Compile Include="SpawnBulletsEffect.cs" />
     <Compile Include="StayingAhead.cs" />
     <Compile Include="TrainBullets.cs" />
-    <Compile Include="Turret.cs" />
-    <Compile Include="TurretMono.cs" />
+    <Compile Include="Wrath.cs" />
     <Compile Include="ZomC_Cards.cs" />
     <Compile Include="GymCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

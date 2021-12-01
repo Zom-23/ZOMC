@@ -49,6 +49,8 @@ namespace ZomC_Cards
             CustomCard.BuildCard<MoreIsBetter>();
             CustomCard.BuildCard<ABulletForYou>();
             CustomCard.BuildCard<Gluttony>();
+            CustomCard.BuildCard<Sloth>();
+            CustomCard.BuildCard<Wrath>();
         }
     }
 }
