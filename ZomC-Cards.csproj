@@ -297,6 +297,7 @@
     <Compile Include="CharacterStatModifiers.cs" />
     <Compile Include="DoubleVision.cs" />
     <Compile Include="DoubleVisionMono.cs" />
+    <Compile Include="Envy.cs" />
     <Compile Include="FlappyBullets.cs" />
     <Compile Include="FlappyMono.cs" />
     <Compile Include="Gluttony.cs" />
