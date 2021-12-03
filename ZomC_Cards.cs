@@ -52,6 +52,7 @@ namespace ZomC_Cards
             CustomCard.BuildCard<Sloth>();
             CustomCard.BuildCard<Wrath>();
             CustomCard.BuildCard<Envy>();
+            CustomCard.BuildCard<Lust>();
         }
     }
 }

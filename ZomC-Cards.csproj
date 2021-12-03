@@ -301,6 +301,7 @@
     <Compile Include="FlappyBullets.cs" />
     <Compile Include="FlappyMono.cs" />
     <Compile Include="Gluttony.cs" />
+    <Compile Include="Lust.cs" />
     <Compile Include="MinionCardBase.cs" />
     <Compile Include="MoreIsBetter.cs" />
     <Compile Include="MSilenceMono.cs" />
