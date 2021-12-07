@@ -82,7 +82,7 @@ namespace ZomC_Cards.Cards
 
         protected override string GetDescription()
         {
-            return "Copy a random valid card from each opponent of the highest rarity";
+            return "Copy a random valid card from each other player of the highest rarity";
         }
 
         protected override CardInfo.Rarity GetRarity()

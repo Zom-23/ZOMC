@@ -35,8 +35,7 @@ namespace ZomC_Cards.Cards
 
             void OnWasDealtDamage(Vector2 damage, bool selfDamage)
             {
-                float damageTaken = Mathf.Clamp(damage.magnitude, 0f, data.maxHealth);
-                health.regeneration = (float)(damageTaken + (damageTaken * .1));
+                data.healthHandler.Heal(damage.magnitude + damage.magnitude * .1f);
             }
 
         }
@@ -106,7 +105,7 @@ namespace ZomC_Cards.Cards
 
         protected override string GetTitle()
         {
-            return "Gluttony";
+            return "Sin: Gluttony";
         }
 
         public override string GetModName()
