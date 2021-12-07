@@ -78,7 +78,6 @@ namespace ZomC_Cards.MonoBehaviours
         private Gun gun;
         private ProjectileHit projectile;
         private Camera mainCam;
-        private bool ready = true;
         private readonly float jumpHeight = (float)(Screen.height * .01); //1% of the screen
 
         public void OnPhotonInstantiate(Photon.Pun.PhotonMessageInfo info)
