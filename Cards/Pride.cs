@@ -7,6 +7,8 @@ using UnboundLib.Cards;
 using UnityEngine;
 using UnboundLib;
 using ModdingUtils.MonoBehaviours;
+using ModdingUtils.Extensions;
+using ModdingUtils.Utils;
 using UnboundLib.GameModes;
 using System.Collections;
 
@@ -24,6 +26,8 @@ namespace ZomC_Cards.Cards
             aboveEffect.SetCenterRay(new Vector2(0f, -1f));
             aboveEffect.SetAngle(90f);
             aboveEffect.SetEffectFunc(aboveDamageEffect);
+
+            
         }
 
         protected override GameObject GetCardArt()
