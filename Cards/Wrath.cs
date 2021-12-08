@@ -16,15 +16,19 @@ namespace ZomC_Cards.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             statModifiers.DealtDamageAction += fireBullets;
-            int fireTicks;
+            Player[] players = PlayerManager.instance.players.ToArray();
+            Color color = new Color(100, 0, 0);
+
             void fireBullets(Vector2 damage, bool selfDamage)
             {
-                fireTicks = 0;
+                CharacterData enemyData = player.data.lastDamagedPlayer.GetComponent<CharacterData>();
+                int fireTicks = 0;
+                Vector2 fire = new Vector2(0, 5f);
                 data.ExecuteAfterSeconds(.3f, () =>
                 {
-                    if (fireTicks < 15)
+                    if(fireTicks < 15)
                     {
-                        data.lastDamagedPlayer.data.healthHandler.regeneration = -5f;
+                        enemyData.healthHandler.TakeDamage(fire, enemyData.playerVel.position);
                     }
                 });
             }
