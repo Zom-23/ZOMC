@@ -54,6 +54,7 @@ namespace ZomC_Cards
             CustomCard.BuildCard<Envy>();
             CustomCard.BuildCard<Lust>();
             CustomCard.BuildCard<Pride>();
+            CustomCard.BuildCard<Greed>();
         }
     }
 }
