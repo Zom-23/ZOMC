@@ -23,7 +23,7 @@ namespace ZomC_Cards.Cards
             {
                 CharacterData enemyData = player.data.lastDamagedPlayer.GetComponent<CharacterData>();
                 int fireTicks = 0;
-                Vector2 fire = new Vector2(0, 5f);
+                Vector2 fire = new Vector2(1, 5f);
                 data.ExecuteAfterSeconds(.3f, () =>
                 {
                     if(fireTicks < 15)

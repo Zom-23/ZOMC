@@ -106,7 +106,7 @@ namespace ZomC_Cards.Cards
             void OnWasDealtDamageBelow(Vector2 damage, bool selfDamage)
             {
                 Vector2 extraDamage = damage;
-                extraDamage.SetPropertyValue("magnitude", damage.magnitude * .3);
+                extraDamage.Set(damage.magnitude * .3f, 1f);
                 health.TakeDamage(extraDamage, damage);
             }
 
