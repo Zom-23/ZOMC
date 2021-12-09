@@ -8,6 +8,7 @@ using UnityEngine;
 using UnboundLib;
 using UnboundLib.GameModes;
 using System.Collections;
+//Gives bullets a chance to silence for 2 seconds upon hit
 
 namespace ZomC_Cards.Cards
 {

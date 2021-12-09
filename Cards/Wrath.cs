@@ -8,6 +8,8 @@ using UnityEngine;
 using UnboundLib;
 using UnboundLib.GameModes;
 using System.Collections;
+//Grants more damage and bullets that cause enemies to take 5 damage 15 times over ~5 seconds
+//Removes 1 ammo
 
 namespace ZomC_Cards.Cards
 {

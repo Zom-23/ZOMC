@@ -11,6 +11,8 @@ using ModdingUtils.Extensions;
 using ModdingUtils.Utils;
 using UnboundLib.GameModes;
 using System.Collections;
+//Grants 70% damage resistance when above an opponent
+//Player takes 30% more damage when below an opponent
 
 namespace ZomC_Cards.Cards
 {
@@ -107,7 +109,7 @@ namespace ZomC_Cards.Cards
             {
                 Vector2 extraDamage = damage;
                 extraDamage.Set(damage.magnitude * .3f, 1f);
-                health.TakeDamage(extraDamage, damage);
+                health.TakeDamage(extraDamage, extraDamage);
             }
 
             effects.Add(effect);

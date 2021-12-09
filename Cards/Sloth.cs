@@ -8,6 +8,8 @@ using UnityEngine;
 using UnboundLib;
 using UnboundLib.GameModes;
 using System.Collections;
+//Increases everyone's gravity and supposed to slow
+//Reduces movement speed of owner, increases lifesteal, takes damage over 3 seconds
 
 namespace ZomC_Cards.Cards
 {
@@ -68,7 +70,7 @@ namespace ZomC_Cards.Cards
                 {
                     positive = false,
                     stat = "Take Damage Over Time",
-                    amount = "2s",
+                    amount = "3s",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat

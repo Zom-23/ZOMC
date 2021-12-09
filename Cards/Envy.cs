@@ -8,7 +8,8 @@ using UnityEngine;
 using UnboundLib;
 using UnboundLib.GameModes;
 using System.Collections;
-
+//Copies a card from each other player choosing from the highest valid rarity
+//Card effect is subject to change
 
 namespace ZomC_Cards.Cards
 {

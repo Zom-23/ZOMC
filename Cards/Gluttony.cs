@@ -8,6 +8,7 @@ using UnityEngine;
 using UnboundLib;
 using UnboundLib.GameModes;
 using System.Collections;
+//Blocking gives 3 seconds of time where the person heals 110% of damage done to them
 
 namespace ZomC_Cards.Cards
 {
@@ -16,9 +17,6 @@ namespace ZomC_Cards.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             block.BlockAction += OnBlock(player, block);
-
-
-
 
             Action<BlockTrigger.BlockTriggerType> OnBlock(Player _player, Block _block)
             {

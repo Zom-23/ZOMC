@@ -10,6 +10,7 @@ using ModdingUtils.MonoBehaviours;
 using UnboundLib.Utils;
 using UnboundLib.GameModes;
 using System.Collections;
+//Blocking next to an opponent forces the opponent to reload and temporarily adds the bullets they had remaining to owner's gun
 
 namespace ZomC_Cards
 {
