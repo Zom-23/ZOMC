@@ -7,13 +7,20 @@ Out of Beta
 Adds a few extra cards to the game:
 Gym
 Double Vision
+Flappy Bullets
 Train Bullets
 Mass Silence
 Staying Ahead
+Adaptive Magazines
 More Is Better
+A Bullet For You
+Gluttony
+Sloth
+Wrath
+Envy
+Lust
+Pride
+Greed
 
 
 Upcoming Cards:
-Flappy Bullets
-Adaptive Magazines
-A Bullet For You
