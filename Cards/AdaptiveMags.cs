@@ -34,7 +34,7 @@ namespace ZomC_Cards.Cards
                 yield break;
             }
             
-            characterStats.OutOfAmmpAction += IncreaseAmmo;
+            characterStats.OnReloadDoneAction += IncreaseAmmo;
             void IncreaseAmmo(int i)
             {
                 reloadCount++;

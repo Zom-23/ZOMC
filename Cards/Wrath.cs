@@ -19,7 +19,6 @@ namespace ZomC_Cards.Cards
         {
             statModifiers.DealtDamageAction += fireBullets;
             Player[] players = PlayerManager.instance.players.ToArray();
-            Color color = new Color(100, 0, 0);
 
             void fireBullets(Vector2 damage, bool selfDamage)
             {
