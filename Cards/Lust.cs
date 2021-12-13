@@ -18,7 +18,7 @@ namespace ZomC_Cards.Cards
         {
             System.Random random = new System.Random();
             int chance = 0;
-            int chanceNeed = data.currentCards.Where(card => card.cardName == "Sin: Lust").Count() * 20;
+            int chanceNeed = data.currentCards.Where(card => card.cardName == "Sin: Lust").Count() * 50;
 
             characterStats.DealtDamageAction += charm;
 
@@ -56,7 +56,7 @@ namespace ZomC_Cards.Cards
                 {
                     positive = true,
                     stat = "Charm Chance",
-                    amount = "+20%",
+                    amount = "+50%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 },
                 new CardInfoStat

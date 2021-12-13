@@ -20,18 +20,14 @@ namespace ZomC_Cards.Cards
             statModifiers.DealtDamageAction += fireBullets;
             Player[] players = PlayerManager.instance.players.ToArray();
 
+
             void fireBullets(Vector2 damage, bool selfDamage)
             {
                 CharacterData enemyData = player.data.lastDamagedPlayer.GetComponent<CharacterData>();
-                int fireTicks = 0;
                 Vector2 fire = new Vector2(1, 5f);
-                data.ExecuteAfterSeconds(.3f, () =>
-                {
-                    if(fireTicks < 15)
-                    {
-                        enemyData.healthHandler.TakeDamage(fire, enemyData.playerVel.position);
-                    }
-                });
+                Color fireColor = new Color(150, 0, 0);
+
+                enemyData.healthHandler.TakeDamageOverTime(fire, fire, 5f, .2f, fireColor);
             }
         }
 

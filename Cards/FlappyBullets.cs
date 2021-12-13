@@ -32,7 +32,7 @@ namespace ZomC_Cards
             
 
             ObjectsToSpawn flapBulletObj = new ObjectsToSpawn() { };
-            flapBulletObj.AddToProjectile = new GameObject("FlappyMono", typeof(FlappyMono));
+            flapBulletObj.AddToProjectile = new GameObject("FlappyMono", typeof(FlappyBulletEffect));
             /*
             List<ObjectsToSpawn> objectsToSpawn = gun.objectsToSpawn.ToList();
             objectsToSpawn.Add(flapBulletObj);
