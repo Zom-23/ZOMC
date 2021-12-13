@@ -14,6 +14,7 @@ using HarmonyLib;
 
 namespace ZomC_Cards.MonoBehaviours
 {
+    /*
     public class FlappyBulletsAssets
     {
         private static GameObject _flapBullet = null;
@@ -69,17 +70,21 @@ namespace ZomC_Cards.MonoBehaviours
             );
         }
     }
-    [RequireComponent(typeof(PhotonView))]
-    public class FlappyBulletEffect : MonoBehaviour, IPunInstantiateMagicCallback
+    */
+    //[RequireComponent(typeof(PhotonView))]
+    public class FlappyBulletEffect : MonoBehaviour//, IPunInstantiateMagicCallback
     {
-        private PhotonView view;
+        
+        //private PhotonView view;
         private Transform parent;
         private Player player;
         private Gun gun;
         private ProjectileHit projectile;
-        private Camera mainCam;
-        private readonly float jumpHeight = (float)(Screen.height * .01); //1% of the screen
-
+        //private Camera mainCam;
+        //private readonly float jumpHeight = (float)(Screen.height * .01); //1% of the screen
+        private MoveTransform move;
+        
+        /*
         public void OnPhotonInstantiate(Photon.Pun.PhotonMessageInfo info)
         {
             object[] instantiationData = info.photonView.InstantiationData;
@@ -91,25 +96,30 @@ namespace ZomC_Cards.MonoBehaviours
             this.player = parent.GetComponent<ProjectileHit>().ownPlayer;
             this.gun = this.player.GetComponent<Holding>().holdable.GetComponent<Gun>();
         }
-
+        */
         void Awake()
         {
 
         }
         void Start()
         {
+            /*
             this.parent = this.gameObject.transform.parent;
-            if (this.parent == null) { return; }
+            if (this.parent == null) { return; }*/
             this.projectile = this.gameObject.transform.parent.GetComponent<ProjectileHit>();
-            this.view = this.gameObject.GetComponent<PhotonView>();
+            //this.view = this.gameObject.GetComponent<PhotonView>();
 
-            this.mainCam = MainCam.instance.transform.GetComponent<Camera>();
+            //this.mainCam = MainCam.instance.transform.GetComponent<Camera>();
+
+            this.move = this.GetComponentInParent<MoveTransform>();
+            
         }
         void Update()
         {
-            float amplitude = 1f;
-            float frequency = .3f;
-            base.transform.root.position += base.transform.right * Mathf.Cos(Time.time * 10f * frequency) * 10f * amplitude * Time.smoothDeltaTime;
+            projectile.ExecuteAfterSeconds(.3f, () =>
+            {
+                move.velocity.y *= 1.3f;
+            });  
         }
     }
 }
