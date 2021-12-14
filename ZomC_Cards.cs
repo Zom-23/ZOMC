@@ -33,7 +33,7 @@ namespace ZomC_Cards
     {
         private const string ModId = "com.Zom.rounds.card";
         private const string ModName = "Zom Cards";
-        public const string Version = "2.0.0"; //(major.minor.patch) Now out of Beta!
+        public const string Version = "2.1.1"; //(major.minor.patch) Now out of Beta!
 
         //Start up the Cards!!
         void Start()
