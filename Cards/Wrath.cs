@@ -8,7 +8,7 @@ using UnityEngine;
 using UnboundLib;
 using UnboundLib.GameModes;
 using System.Collections;
-//Grants more damage and bullets that cause enemies to take 5 damage 15 times over ~5 seconds
+//Grants more damage and bullets that cause enemies to take 30 damage over 5 seconds
 //Removes 1 ammo
 
 namespace ZomC_Cards.Cards
@@ -24,7 +24,7 @@ namespace ZomC_Cards.Cards
             void fireBullets(Vector2 damage, bool selfDamage)
             {
                 CharacterData enemyData = player.data.lastDamagedPlayer.GetComponent<CharacterData>();
-                Vector2 fire = new Vector2(1, 5f);
+                Vector2 fire = new Vector2(1, 30f);
                 Color fireColor = new Color(150, 0, 0);
 
                 enemyData.healthHandler.TakeDamageOverTime(fire, fire, 5f, .2f, fireColor);

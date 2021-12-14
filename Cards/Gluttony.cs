@@ -33,7 +33,7 @@ namespace ZomC_Cards.Cards
 
             void OnWasDealtDamage(Vector2 damage, bool selfDamage)
             {
-                data.healthHandler.Heal(damage.magnitude + damage.magnitude * .1f);
+                data.healthHandler.Heal(damage.magnitude + (damage.magnitude * .1f));
             }
 
         }
@@ -53,7 +53,7 @@ namespace ZomC_Cards.Cards
 
         protected override string GetDescription()
         {
-            return "Consume bullets after blocking";
+            return "Consume bullets after blocking to heal";
         }
 
         protected override CardInfo.Rarity GetRarity()
