@@ -25,7 +25,6 @@ namespace ZomC_Cards.Cards
         {
             int reloadCount = 0;
             gunAmmo.maxAmmo = 3;
-            gun.reloadTimeAdd = (float)(gun.reloadTime * -.5);
 
             GameModeManager.AddHook(GameModeHooks.HookPointStart, MyHook);
             IEnumerator MyHook(IGameModeHandler gm)
@@ -48,7 +47,7 @@ namespace ZomC_Cards.Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-
+            gun.reloadTimeAdd = (gun.reloadTime * -.5f);
         }
         
 

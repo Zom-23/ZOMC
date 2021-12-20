@@ -19,25 +19,25 @@ namespace ZomC_Cards.Cards
     {
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            gun.attackSpeed *= 1.5f;
-            gun.bodyRecoil *= 1.5f;
-            gun.bulletDamageMultiplier *= 1.5f;
-            gun.damage *= 1.5f;
-            gun.evenSpread *= 1.5f;
-            gun.gravity *= 1.5f;
-            gun.knockback *= 1.5f;
-            gun.projectileSize *= 1.5f;
-            gun.projectileSpeed *= 1.5f;
-            gun.recoil *= 1.5f;
-            gun.reloadTime *= 1.5f;
-            gun.size *= 1.5f;
-            gun.spread *= 1.5f;
-            gunAmmo.maxAmmo += (int)(gunAmmo.maxAmmo * .5);
-            block.cdAdd *= 1.5f;
-            characterStats.health *= 1.5f;
-            characterStats.gravity *= 1.5f;
-            characterStats.lifeSteal *= 1.5f;
-            characterStats.movementSpeed *= 1.5f;
+            gun.attackSpeed *= 1.25f;
+            gun.bodyRecoil *= 1.25f;
+            gun.bulletDamageMultiplier *= 1.25f;
+            gun.damage *= 1.25f;
+            gun.evenSpread *= 1.25f;
+            gun.gravity *= 1.25f;
+            gun.knockback *= 1.25f;
+            gun.projectileSize *= 1.25f;
+            gun.projectileSpeed *= 1.25f;
+            gun.recoil *= 1.25f;
+            gun.reloadTime *= 1.25f;
+            gun.size *= 1.25f;
+            gun.spread *= 1.25f;
+            gunAmmo.maxAmmo += (int)(gunAmmo.maxAmmo * .25);
+            block.cdAdd *= 1.25f;
+            characterStats.health *= 1.25f;
+            characterStats.gravity *= 1.25f;
+            characterStats.lifeSteal *= 1.25f;
+            characterStats.movementSpeed *= 1.25f;
         }
 
         protected override GameObject GetCardArt()
@@ -63,7 +63,7 @@ namespace ZomC_Cards.Cards
                 {
                     positive = true,
                     stat = "Everything",
-                    amount = "+50%",
+                    amount = "+25%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 }
             };
