@@ -48,13 +48,13 @@ namespace ZomC_Cards
             CustomCard.BuildCard<AdaptiveMags>();
             CustomCard.BuildCard<MoreIsBetter>();
             CustomCard.BuildCard<ABulletForYou>();
-            CustomCard.BuildCard<Gluttony>();
-            CustomCard.BuildCard<Sloth>();
-            CustomCard.BuildCard<Wrath>();
-            CustomCard.BuildCard<Envy>();
-            CustomCard.BuildCard<Lust>();
-            CustomCard.BuildCard<Pride>();
-            CustomCard.BuildCard<Greed>();
+            //CustomCard.BuildCard<Gluttony>();
+            //CustomCard.BuildCard<Sloth>();
+            //CustomCard.BuildCard<Wrath>();
+            //CustomCard.BuildCard<Envy>();
+            //CustomCard.BuildCard<Lust>();
+            //CustomCard.BuildCard<Pride>();
+            //CustomCard.BuildCard<Greed>();
         }
     }
 }
