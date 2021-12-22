@@ -65,7 +65,7 @@ namespace ZomC_Cards.MonoBehaviours
             if(winning)
             {
                 gun.damage *= 1.5f;
-                gun.GetComponentInChildren<GunAmmo>().reloadTimeAdd = -1f;
+                gun.GetComponentInChildren<GunAmmo>().reloadTimeAdd -= 1f;
             }
 
             yield break;
