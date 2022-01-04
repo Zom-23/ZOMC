@@ -32,30 +32,31 @@ namespace ZomC_Cards.MonoBehaviours
         void Start()
         {
             this.happen = false;
-        }
-
-        void Update()
-        {
-            if(!happen)
+            if (!happen)
             {
                 GameModeManager.AddHook(GameModeHooks.HookBattleStart, MyHook);
                 this.happen = true;
             }
         }
 
+        void Update()
+        {
+
+        }
+
         static IEnumerator MyHook(IGameModeHandler gm)
         {
-            foreach(Player p in players)
+            foreach (Player p in players)
             {
-                if(p.teamID != player.teamID)
+                if (p.teamID != player.teamID)
                 {
-                    p.data.isSilenced = true;
-                    p.data.silenceTime = 3f;
+                    p.gameObject.GetComponent<SilenceHandler>().RPCA_AddSilence(3f);
+                    p.data.input.silencedInput = true;
                 }
             }
             yield break;
         }
     }
 
-    
+
 }

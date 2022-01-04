@@ -14,7 +14,7 @@ using HarmonyLib;
 
 namespace ZomC_Cards.MonoBehaviours
 {
-    
+
     public class DoubleViAssets
     {
         private static GameObject _doubleVi = null;
@@ -23,7 +23,7 @@ namespace ZomC_Cards.MonoBehaviours
         {
             get
             {
-                if(DoubleViAssets._doubleVi != null) { return DoubleViAssets._doubleVi; }
+                if (DoubleViAssets._doubleVi != null) { return DoubleViAssets._doubleVi; }
                 else
                 {
                     DoubleViAssets._doubleVi = new GameObject("ZOMC_DoubleVision", typeof(DoubleViEffect), typeof(PhotonView));

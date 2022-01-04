@@ -74,7 +74,7 @@ namespace ZomC_Cards.MonoBehaviours
     //[RequireComponent(typeof(PhotonView))]
     public class FlappyBulletEffect : MonoBehaviour//, IPunInstantiateMagicCallback
     {
-        
+
         //private PhotonView view;
         private Transform parent;
         private Player player;
@@ -83,7 +83,7 @@ namespace ZomC_Cards.MonoBehaviours
         //private Camera mainCam;
         //private readonly float jumpHeight = (float)(Screen.height * .01); //1% of the screen
         private MoveTransform move;
-        
+
         /*
         public void OnPhotonInstantiate(Photon.Pun.PhotonMessageInfo info)
         {
@@ -112,14 +112,14 @@ namespace ZomC_Cards.MonoBehaviours
             //this.mainCam = MainCam.instance.transform.GetComponent<Camera>();
 
             this.move = this.GetComponentInParent<MoveTransform>();
-            
+
         }
         void Update()
         {
             projectile.ExecuteAfterSeconds(.3f, () =>
             {
                 move.velocity.y *= 1.3f;
-            });  
+            });
         }
     }
 }
