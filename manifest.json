@@ -1,6 +1,6 @@
 {
-	"name": "ZOMC_Experimental",
-	"version_number": "2.1.1",
+	"name": "ZOMC",
+	"version_number": "2.1.4",
 	"website_url": "https://github.com/Zom-23/ZOMC",
 	"description": "Adds a few new cards to the game",
 	"dependencies": [
