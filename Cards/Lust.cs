@@ -17,20 +17,25 @@ namespace ZomC_Cards.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             System.Random random = new System.Random();
-            int chance = 0;
             int chanceNeed = data.currentCards.Where(card => card.cardName == "Sin: Lust").Count() * 50;
 
             characterStats.DealtDamageAction += charm;
 
             void charm(Vector2 damage, bool selfDamage)
             {
+                int chance = 0;
                 chance = random.Next(1, 100);
-                if(chance <= chanceNeed)
+                if (chance <= chanceNeed && this.photonView.IsMine)
                 {
-                    data.lastDamagedPlayer.data.isSilenced = true;
-                    data.lastDamagedPlayer.data.silenceTime = 2f;
+
                 }
             }
+
+        }
+
+        private void RPCA_Charm(int roll, Player p)
+        {
+            p.data.gameObject.GetComponent<SilenceHandler>().RPCA_AddSilence(2f);
         }
 
         protected override GameObject GetCardArt()

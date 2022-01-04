@@ -43,7 +43,7 @@ namespace ZomC_Cards.Cards
             block.cdAdd = 1f;
             statModifiers.health = 1.25f;
             statModifiers.sizeMultiplier = 1.5f;
-            
+
         }
 
         protected override GameObject GetCardArt()

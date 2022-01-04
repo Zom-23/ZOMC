@@ -20,21 +20,21 @@ namespace ZomC_Cards.Cards
             Player[] players = PlayerManager.instance.players.ToArray();
             List<CardInfo> rareCards = new List<CardInfo>();
             CardInfo[] enemyCards;
-            foreach(Player p in players.Where(p => p.playerID != player.playerID))
+            foreach (Player p in players.Where(p => p.playerID != player.playerID))
             {
                 enemyCards = p.data.currentCards.ToArray();
 
-                foreach(CardInfo c in enemyCards.Where(c => c.rarity.Equals(CardInfo.Rarity.Rare) && ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, c)))
+                foreach (CardInfo c in enemyCards.Where(c => c.rarity.Equals(CardInfo.Rarity.Rare) && ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, c)))
                 {
                     rareCards.Add(c);
                 }
 
-                if(rareCards.Count >= 1)
+                if (rareCards.Count >= 1)
                 {
-                        var randomNum = UnityEngine.Random.Range(0, rareCards.Count);
-                        var randomCard = rareCards[randomNum];
-                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, randomCard, false, "", 0, 0, true);
-                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, randomCard);
+                    var randomNum = UnityEngine.Random.Range(0, rareCards.Count);
+                    var randomCard = rareCards[randomNum];
+                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, randomCard, false, "", 0, 0, true);
+                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, randomCard);
                 }
                 else
                 {
@@ -45,10 +45,10 @@ namespace ZomC_Cards.Cards
 
                     if (rareCards.Count >= 1)
                     {
-                            var randomNum = UnityEngine.Random.Range(0, rareCards.Count);
-                            var randomCard = rareCards[randomNum];
-                            ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, randomCard, false, "", 0, 0, true);
-                            ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, randomCard);
+                        var randomNum = UnityEngine.Random.Range(0, rareCards.Count);
+                        var randomCard = rareCards[randomNum];
+                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, randomCard, false, "", 0, 0, true);
+                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, randomCard);
                     }
                     else
                     {
@@ -59,10 +59,10 @@ namespace ZomC_Cards.Cards
 
                         if (rareCards.Count >= 1)
                         {
-                                var randomNum = UnityEngine.Random.Range(0, rareCards.Count);
-                                var randomCard = rareCards[randomNum];
-                                ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, randomCard, false, "", 0, 0, true);
-                                ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, randomCard);
+                            var randomNum = UnityEngine.Random.Range(0, rareCards.Count);
+                            var randomCard = rareCards[randomNum];
+                            ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, randomCard, false, "", 0, 0, true);
+                            ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, randomCard);
                         }
                     }
                 }

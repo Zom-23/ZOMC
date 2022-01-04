@@ -18,17 +18,17 @@ namespace ZomC_Cards.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             DoubleViSpawner doubleVision = player.gameObject.GetOrAddComponent<DoubleViSpawner>();
-            
+
         }
 
         public override void OnRemoveCard()
         {
-            
+
         }
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-            
+
             List<ObjectsToSpawn> objectsToSpawns = new List<ObjectsToSpawn>();
             ObjectsToSpawn doubleVi = new ObjectsToSpawn { };
             doubleVi.AddToProjectile = new GameObject("DoubleViSpawner", typeof(DoubleViSpawner));
@@ -40,7 +40,7 @@ namespace ZomC_Cards.Cards
             //gun.evenSpread = .5f;
         }
 
-     
+
 
         protected override GameObject GetCardArt()
         {

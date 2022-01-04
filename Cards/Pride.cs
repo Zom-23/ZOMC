@@ -7,10 +7,10 @@ using UnboundLib.Cards;
 using UnityEngine;
 using UnboundLib;
 using ModdingUtils.MonoBehaviours;
-using ModdingUtils.Extensions;
 using ModdingUtils.Utils;
 using UnboundLib.GameModes;
 using System.Collections;
+using ZomC_Cards.Extensions;
 //Grants 70% damage resistance when above an opponent
 //Player takes 30% more damage when below an opponent
 
@@ -24,12 +24,13 @@ namespace ZomC_Cards.Cards
             belowEffect.SetCenterRay(new Vector2(0f, 1f));
             belowEffect.SetAngle(90f);
             belowEffect.SetEffectFunc(belowDamageEffect);
+
             InConeEffect aboveEffect = player.gameObject.AddComponent<InConeEffect>();
             aboveEffect.SetCenterRay(new Vector2(0f, -1f));
             aboveEffect.SetAngle(90f);
             aboveEffect.SetEffectFunc(aboveDamageEffect);
 
-            
+
         }
 
         protected override GameObject GetCardArt()
@@ -97,38 +98,28 @@ namespace ZomC_Cards.Cards
             return "ZOMC";
         }
 
+        //Below Other players
         public List<MonoBehaviour> belowDamageEffect(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             List<MonoBehaviour> effects = new List<MonoBehaviour>();
 
             ReversibleEffect effect = player.gameObject.AddComponent<ReversibleEffect>();
 
-            characterStats.WasDealtDamageAction += OnWasDealtDamageBelow;
-
-            void OnWasDealtDamageBelow(Vector2 damage, bool selfDamage)
-            {
-                Vector2 extraDamage = damage;
-                extraDamage.Set(damage.magnitude * .3f, 1f);
-                health.TakeDamage(extraDamage, extraDamage);
-            }
+            characterStats.GetAdditionalData().DamageReduction = -.3f;
 
             effects.Add(effect);
 
             return effects;
 
         }
+        //Above other Players
         public List<MonoBehaviour> aboveDamageEffect(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             List<MonoBehaviour> effects = new List<MonoBehaviour>();
 
             ReversibleEffect effect = player.gameObject.AddComponent<ReversibleEffect>();
 
-            characterStats.WasDealtDamageAction += OnWasDealtDamageAbove;
-
-            void OnWasDealtDamageAbove(Vector2 damage, bool selfDamage)
-            {
-                data.healthHandler.Heal(damage.magnitude * .7f);
-            }
+            characterStats.GetAdditionalData().DamageReduction = .7f;
 
             effects.Add(effect);
 

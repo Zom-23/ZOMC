@@ -15,11 +15,11 @@ namespace ZomC_Cards
     {
 
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
-        {  
+        {
         }
 
         public override void OnRemoveCard()
-        {  
+        {
         }
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
@@ -29,7 +29,7 @@ namespace ZomC_Cards
             gun.speedMOnBounce = 0f;
             gun.randomBounces = 1;
             gun.waveMovement = true;
-            
+
 
             ObjectsToSpawn flapBulletObj = new ObjectsToSpawn() { };
             flapBulletObj.AddToProjectile = new GameObject("FlappyMono", typeof(FlappyBulletEffect));
