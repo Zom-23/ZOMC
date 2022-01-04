@@ -20,12 +20,12 @@ namespace ZomC_Cards.Cards
             int chanceNeed = data.currentCards.Where(card => card.cardName == "Sin: Lust").Count() * 50;
 
             characterStats.DealtDamageAction += charm;
-
+            
             void charm(Vector2 damage, bool selfDamage)
             {
                 int chance = 0;
                 chance = random.Next(1, 100);
-                if (chance <= chanceNeed && this.photonView.IsMine)
+                if(chance <= chanceNeed && this.photonView.IsMine)
                 {
 
                 }
