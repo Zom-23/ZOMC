@@ -23,7 +23,7 @@ namespace ZomC_Cards.Cards
             {
                 CharacterData enemyData = player.data.lastDamagedPlayer.GetComponent<CharacterData>();
 
-                enemyData.healthHandler.TakeDamageOverTime(damage * .15f, enemyData.groundPos, 5f, .15f, Color.red, null, enemyData.lastSourceOfDamage, true);
+                enemyData.healthHandler.TakeDamageOverTime(damage * .30f, enemyData.groundPos, 5f, .15f, Color.red, null, enemyData.lastSourceOfDamage, true);
 
             }
         }
