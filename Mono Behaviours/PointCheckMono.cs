@@ -43,34 +43,37 @@ namespace ZomC_Cards.MonoBehaviours
         {
             if (!happen)
             {
-                GameModeManager.AddHook(GameModeHooks.HookPointStart, MyHook);
+                GameModeManager.AddHook(GameModeHooks.HookPointStart, CheckWinning);
                 this.happen = true;
             }
         }
-
-        static IEnumerator MyHook(IGameModeHandler gm)
+        static IEnumerator CheckWinning(IGameModeHandler gm)
         {
-            foreach (Player p in players)
+            try
             {
-                if (GameModeManager.CurrentHandler.GetTeamScore(player.teamID).points > GameModeManager.CurrentHandler.GetTeamScore(p.teamID).points)
+                foreach (Player p in players.Where(p => p.teamID != player.teamID))
                 {
-                    winning = true;
+                    if (GameModeManager.CurrentHandler.GetTeamScore(player.teamID).points > GameModeManager.CurrentHandler.GetTeamScore(p.teamID).points)
+                    {
+                        winning = true;
+                    }
+                    else
+                    {
+                        winning = false;
+                        break;
+                    }
                 }
-                else
+
+                if (winning)
                 {
-                    winning = false;
+                    gun.damage *= 1.5f;
+                    gun.GetComponentInChildren<GunAmmo>().reloadTimeAdd -= 1f;
                 }
-            }
+                yield break;
 
-            if (winning)
-            {
-                gun.damage *= 1.5f;
-                gun.GetComponentInChildren<GunAmmo>().reloadTimeAdd -= 1f;
             }
-
-            yield break;
+            catch (Exception e)
+            { UnityEngine.Debug.LogException(e); }
         }
     }
-
-
 }
