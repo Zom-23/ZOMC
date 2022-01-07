@@ -21,10 +21,24 @@ namespace ZomC_Cards.Cards
             foreach(Player p in players)
             {
                 p.data.stats.gravity *= 1.3f;
-                p.data.weaponHandler.gun.gravity *= 1.2f;
-                p.data.stats.slow = .5f;
+                p.data.weaponHandler.gun.gravity *= 1.2f;    
+            }
+            GameModeManager.AddHook(GameModeHooks.HookBattleStart, SlowAll);
+
+            IEnumerator SlowAll(IGameModeHandler gm)
+            {
+                foreach (Player p in players)
+                {
+                    if (p.teamID != player.teamID)
+                    {
+                        p.data.stats.RPCA_AddSlow(float.MaxValue);
+                    }
+                }
+                yield break;
             }
         }
+
+        
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {

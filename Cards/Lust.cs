@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using UnboundLib.Cards;
 using UnityEngine;
+using Photon.Pun;
+using Photon;
 using UnboundLib;
 using UnboundLib.GameModes;
 using System.Collections;
@@ -20,17 +22,15 @@ namespace ZomC_Cards.Cards
             int chanceNeed = data.currentCards.Where(card => card.cardName == "Sin: Lust").Count() * 50;
 
             characterStats.DealtDamageAction += charm;
-            
             void charm(Vector2 damage, bool selfDamage)
             {
                 int chance = 0;
                 chance = random.Next(1, 100);
-                if(chance <= chanceNeed && this.photonView.IsMine)
+                if (chance <= chanceNeed)
                 {
-
+                    RPCA_Charm(chance, player.data.lastDamagedPlayer);
                 }
             }
-
         }
 
         private void RPCA_Charm(int roll, Player p)
