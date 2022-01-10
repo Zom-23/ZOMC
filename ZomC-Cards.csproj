@@ -294,6 +294,7 @@
   <ItemGroup>
     <Compile Include="ABulletForYou.cs" />
     <Compile Include="AdaptiveMags.cs" />
+    <Compile Include="Bigger.cs" />
     <Compile Include="CharacterStatModifiers.cs" />
     <Compile Include="DoubleVision.cs" />
     <Compile Include="DoubleVisionMono.cs" />
@@ -303,7 +304,9 @@
     <Compile Include="Gluttony.cs" />
     <Compile Include="Greed.cs" />
     <Compile Include="HealthHandler_Patch.cs" />
+    <Compile Include="KlutzFingers.cs" />
     <Compile Include="Lust.cs" />
+    <Compile Include="LustMono.cs" />
     <Compile Include="MinionCardBase.cs" />
     <Compile Include="MoreIsBetter.cs" />
     <Compile Include="MSilenceMono.cs" />
@@ -313,6 +316,7 @@
     <Compile Include="MassSilence!.cs" />
     <Compile Include="Pride.cs" />
     <Compile Include="Sloth.cs" />
+    <Compile Include="SlowReload.cs" />
     <Compile Include="SpawnBulletsEffect.cs" />
     <Compile Include="StayingAhead.cs" />
     <Compile Include="TrainBullets.cs" />

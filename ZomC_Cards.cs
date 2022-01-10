@@ -56,6 +56,8 @@ namespace ZomC_Cards
             CustomCard.BuildCard<Pride>();
             CustomCard.BuildCard<Greed>();
             CustomCard.BuildCard<PerseverancePristine>();
+            CustomCard.BuildCard<SlowReload>();
+            CustomCard.BuildCard<Bigger>();
         }
     }
 }
