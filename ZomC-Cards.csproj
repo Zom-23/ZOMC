@@ -305,6 +305,7 @@
     <Compile Include="Greed.cs" />
     <Compile Include="HealthHandler_Patch.cs" />
     <Compile Include="KlutzFingers.cs" />
+    <Compile Include="LighterAmmo.cs" />
     <Compile Include="Lust.cs" />
     <Compile Include="LustMono.cs" />
     <Compile Include="MinionCardBase.cs" />
@@ -315,6 +316,7 @@
     <Compile Include="PreventRecursion.cs" />
     <Compile Include="MassSilence!.cs" />
     <Compile Include="Pride.cs" />
+    <Compile Include="PumpedUpKicks.cs" />
     <Compile Include="Sloth.cs" />
     <Compile Include="SlowReload.cs" />
     <Compile Include="SpawnBulletsEffect.cs" />

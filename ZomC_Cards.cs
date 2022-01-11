@@ -58,6 +58,8 @@ namespace ZomC_Cards
             CustomCard.BuildCard<PerseverancePristine>();
             CustomCard.BuildCard<SlowReload>();
             CustomCard.BuildCard<Bigger>();
+            CustomCard.BuildCard<PumpedUpKicks>();
+            CustomCard.BuildCard<LighterAmmo>();
         }
     }
 }
