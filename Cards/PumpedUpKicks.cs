@@ -8,23 +8,17 @@ using UnityEngine;
 
 namespace ZomC_Cards.Cards
 {
-    class Bigger : CustomCard
+    class PumpedUpKicks : CustomCard
     {
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            gun.projectileSize *= 1.2f;
-            gun.ShootPojectileAction += increaseSize();
-
-            System.Action<UnityEngine.GameObject> increaseSize()
-            {
-                gun.projectileSize *= 1.1f;
-                return null;
-            }
+            
         }
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            
+            gun.projectileSpeed = 1.5f;
+            statModifiers.movementSpeed = 1.3f;
         }
 
         protected override GameObject GetCardArt()
@@ -34,7 +28,7 @@ namespace ZomC_Cards.Cards
 
         protected override string GetDescription()
         {
-            return "Increasingly large bullets";
+            return "You better run, better run faster than my bullet";
         }
 
         protected override CardInfo.Rarity GetRarity()
@@ -44,17 +38,33 @@ namespace ZomC_Cards.Cards
 
         protected override CardInfoStat[] GetStats()
         {
-            return null;
+            return new CardInfoStat[]
+            {
+                new CardInfoStat
+                {
+                    positive = true,
+                    stat = "Bullet Speed",
+                    amount = "+50%",
+                    simepleAmount = CardInfoStat.SimpleAmount.aLotOf
+                },
+                new CardInfoStat
+                {
+                    positive = true,
+                    stat = "Movement Speed",
+                    amount = "+30%",
+                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                }
+            };
         }
 
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.DestructiveRed;
+            return CardThemeColor.CardThemeColorType.FirepowerYellow;
         }
 
         protected override string GetTitle()
         {
-            return "Bigger than Big";
+            return "Pumped Up Kicks";
         }
 
         public override string GetModName()
