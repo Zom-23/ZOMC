@@ -8,6 +8,7 @@ using UnityEngine;
 using UnboundLib;
 using UnboundLib.GameModes;
 using System.Collections;
+using ZomC_Cards.MonoBehaviours;
 //Grants more damage and bullets that cause enemies to take 15% over 5 seconds
 //Removes 1 ammo
 
@@ -17,15 +18,16 @@ namespace ZomC_Cards.Cards
     {
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            statModifiers.DealtDamageAction += fireBullets;
-
-            void fireBullets(Vector2 damage, bool selfDamage)
+            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
+            list.Add(new ObjectsToSpawn
             {
-                CharacterData enemyData = player.data.lastDamagedPlayer.GetComponent<CharacterData>();
+                AddToProjectile = new GameObject("FireMono", new Type[]
+                    {
+                        typeof(FireMono)
+                    })
+            });
 
-                enemyData.healthHandler.TakeDamageOverTime(damage * .30f, enemyData.groundPos, 5f, .15f, Color.red, null, enemyData.lastSourceOfDamage, true);
-
-            }
+            gun.objectsToSpawn = list.ToArray();
         }
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)

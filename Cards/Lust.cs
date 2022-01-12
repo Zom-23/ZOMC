@@ -10,6 +10,7 @@ using Photon;
 using UnboundLib;
 using UnboundLib.GameModes;
 using System.Collections;
+using ZomC_Cards.MonoBehaviours;
 //Gives bullets a chance to silence for 2 seconds upon hit
 
 namespace ZomC_Cards.Cards
@@ -18,7 +19,19 @@ namespace ZomC_Cards.Cards
     {
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            System.Random random = new System.Random();
+            List<ObjectsToSpawn> list = gun.objectsToSpawn.ToList();
+            list.Add(new ObjectsToSpawn
+            {
+                AddToProjectile = new GameObject("LustMono", new Type[]
+                    {
+                        typeof(LustMono)
+                    })
+            });
+
+            gun.objectsToSpawn = list.ToArray();
+
+
+            /*System.Random random = new System.Random();
             int chanceNeed = data.currentCards.Where(card => card.cardName == "Sin: Lust").Count() * 50;
 
             characterStats.DealtDamageAction += charm;
@@ -30,12 +43,18 @@ namespace ZomC_Cards.Cards
                 {
                     RPCA_Charm(chance, player.data.lastDamagedPlayer);
                 }
-            }
+            }*/
         }
-
+        /*
         private void RPCA_Charm(int roll, Player p)
         {
             p.data.gameObject.GetComponent<SilenceHandler>().RPCA_AddSilence(2f);
+        }
+        */
+
+        public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
+        {
+            cardInfo.allowMultiple = false;
         }
 
         protected override GameObject GetCardArt()
