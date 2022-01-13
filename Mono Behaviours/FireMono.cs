@@ -41,7 +41,7 @@ namespace ZomC_Cards.MonoBehaviours
             DamageOverTime component = hit.transform.GetComponent<DamageOverTime>();
             if (component)
             {
-                component.TakeDamageOverTime(projectileHit.damage * this.transform.forward, this.transform.position, this.time, this.interval, new Color(1f, 0.3f, 0f, 1f), this.soundEventDamageOverTime, this.GetComponentInParent<ProjectileHit>().ownWeapon, this.GetComponentInParent<ProjectileHit>().ownPlayer, true);
+                component.TakeDamageOverTime(30f * this.transform.forward, this.transform.position, this.time, this.interval, new Color(1f, 0.3f, 0f, 1f), this.soundEventDamageOverTime, this.GetComponentInParent<ProjectileHit>().ownWeapon, this.GetComponentInParent<ProjectileHit>().ownPlayer, true);
             }
 
             return HasToReturn.canContinue;
@@ -51,7 +51,7 @@ namespace ZomC_Cards.MonoBehaviours
         public SoundEvent soundEventDamageOverTime;
 
         [Header("Settings")]
-        public float time = 5f;
+        public float time = 3f;
         public float interval = 0.1f;
 
     }
