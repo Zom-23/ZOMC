@@ -29,12 +29,16 @@ namespace ZomC_Cards.Cards
 
 
             gunAmmo.maxAmmo += playernum;
-            characterStats.health *= 1 + (playernum / 10);
+            data.maxHealth *= 1 + (playernum / 10);
         }
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-
+            //1-3 opponents 10% health & +1 ammo for each                                   max: 30% health, +3 ammo total: 30% health, +3 ammo
+            //^4-5 opponents 8% health & +1 ammo for each                                   max: 16% health, +2 ammo total: 46% health, +5 ammo
+            //^6-7 opponents 6% health & +1 ammo for each                                   max: 12% health, +2 ammo total: 58% health, +7 ammo
+            //^8-10 opponents 5% health for each & +1 ammo at the 8th and 10th              max: 15% health, +2 ammo total: 73% health, +9 ammo
+            //^11-15 opponents 3% health for each & +1 ammo at the 11th, 13th, and 15th     max: 15% health, +3 ammo total: 88% health, +12 ammo
         }
 
         protected override GameObject GetCardArt()

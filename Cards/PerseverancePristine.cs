@@ -55,5 +55,10 @@ namespace ZomC_Cards.Cards
         {
             return "Perseverance Pristine";
         }
+
+        public override string GetModName()
+        {
+            return "ZOMC";
+        }
     }
 }
