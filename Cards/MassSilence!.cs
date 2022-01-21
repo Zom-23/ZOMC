@@ -24,7 +24,11 @@ namespace ZomC_Cards.Cards
         }
 
         public override void OnRemoveCard()
-        { }
+        {
+            Player player = gameObject.GetComponent<Player>();
+
+            //player.gameObject.
+        }
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {

@@ -19,10 +19,11 @@ namespace ZomC_Cards.Cards
         {
             Player[] players = PlayerManager.instance.players.ToArray();
             List<CardInfo> rareCards = new List<CardInfo>();
-            CardInfo[] enemyCards;
-            foreach (Player p in players.Where(p => p.playerID != player.playerID))
+            List<CardInfo> cardsToAdd = new List<CardInfo>();
+            List<CardInfo> enemyCards;
+            foreach (Player p in players.Where(p => p.playerID != player.playerID && p.teamID != player.teamID))
             {
-                enemyCards = p.data.currentCards.ToArray();
+                enemyCards = p.data.currentCards.ToList();
 
                 foreach (CardInfo c in enemyCards.Where(c => c.rarity.Equals(CardInfo.Rarity.Rare) && ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, c)))
                 {
@@ -32,9 +33,10 @@ namespace ZomC_Cards.Cards
                 if (rareCards.Count >= 1)
                 {
                     var randomNum = UnityEngine.Random.Range(0, rareCards.Count);
-                    var randomCard = rareCards[randomNum];
-                    ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, randomCard, false, "", 0, 0, true);
-                    ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, randomCard);
+                    cardsToAdd.Add(rareCards[randomNum]);
+                    //var randomCard = rareCards[randomNum];
+                    //ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, randomCard, false, "", 0, 0, true);
+                    //ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, randomCard);
                 }
                 else
                 {
@@ -46,9 +48,10 @@ namespace ZomC_Cards.Cards
                     if (rareCards.Count >= 1)
                     {
                         var randomNum = UnityEngine.Random.Range(0, rareCards.Count);
-                        var randomCard = rareCards[randomNum];
-                        ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, randomCard, false, "", 0, 0, true);
-                        ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, randomCard);
+                        cardsToAdd.Add(rareCards[randomNum]);
+                        //var randomCard = rareCards[randomNum];
+                        //ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, randomCard, false, "", 0, 0, true);
+                        //ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, randomCard);
                     }
                     else
                     {
@@ -60,14 +63,22 @@ namespace ZomC_Cards.Cards
                         if (rareCards.Count >= 1)
                         {
                             var randomNum = UnityEngine.Random.Range(0, rareCards.Count);
-                            var randomCard = rareCards[randomNum];
-                            ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, randomCard, false, "", 0, 0, true);
-                            ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, randomCard);
+                            cardsToAdd.Add(rareCards[randomNum]);
+                            //var randomCard = rareCards[randomNum];
+                            //ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, randomCard, false, "", 0, 0, true);
+                            //ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, randomCard);
                         }
                     }
                 }
-
+                enemyCards.Clear();
             }
+
+            CardInfo[] _cardsToAdd = cardsToAdd.ToArray();
+            Unbound.Instance.ExecuteAfterFrames(5, () =>
+            {
+                ModdingUtils.Utils.Cards.instance.AddCardsToPlayer(player, _cardsToAdd, false, null, null, null, true);
+            });
+            
         }
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
@@ -83,7 +94,7 @@ namespace ZomC_Cards.Cards
 
         protected override string GetDescription()
         {
-            return "Copy a random valid card from each other player of the highest rarity";
+            return "Copy a random valid card from each other opponent of the highest rarity";
         }
 
         protected override CardInfo.Rarity GetRarity()

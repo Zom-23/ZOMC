@@ -31,7 +31,7 @@ namespace ZomC_Cards.Cards
                 {
                     if (p.teamID != player.teamID)
                     {
-                        p.data.stats.RPCA_AddSlow(float.MaxValue);
+                        p.data.stats.RPCA_AddSlow(2);
                     }
                 }
                 yield break;

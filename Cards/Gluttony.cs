@@ -8,34 +8,45 @@ using UnityEngine;
 using UnboundLib;
 using UnboundLib.GameModes;
 using System.Collections;
+using ZomC_Cards.MonoBehaviours;
 //Blocking gives 3 seconds of time where the person heals 110% of damage done to them
 
 namespace ZomC_Cards.Cards
 {
+
     class Gluttony : CustomCard
     {
+
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             block.BlockAction += OnBlock(player, block);
-
+            GameModeManager.AddHook(GameModeHooks.HookPointEnd, destroyMonos);
             Action<BlockTrigger.BlockTriggerType> OnBlock(Player _player, Block _block)
             {
                 return delegate (BlockTrigger.BlockTriggerType trigger)
                 {
-                    characterStats.WasDealtDamageAction += OnWasDealtDamage;
-
-                    characterStats.ExecuteAfterSeconds(3f, () =>
-                    {
-                        characterStats.WasDealtDamageAction -= OnWasDealtDamage;
-                    });
+                    ConsumeMono consumeEffect = player.gameObject.GetOrAddComponent<ConsumeMono>();
+                    block.BlockAction -= OnBlock(player, block);
+                    Unbound.Instance.ExecuteAfterSeconds(5f, () => { block.BlockAction += OnBlock(player, block); });
                 };
             }
+        }
 
-            void OnWasDealtDamage(Vector2 damage, bool selfDamage)
+        IEnumerator destroyMonos(IGameModeHandler gm)
+        {
+            DestroyAll<ConsumeMono>();
+            yield break;
+        }
+
+        void DestroyAll<type>() where type : UnityEngine.Object
+        {
+            var objects = GameObject.FindObjectsOfType<type>();
+
+            foreach (var mono in objects)
             {
-                data.healthHandler.Heal(damage.magnitude + (damage.magnitude * .1f));
+                UnityEngine.Debug.Log($"Attempting to Destroy a {mono.GetType().Name}");
+                UnityEngine.Object.Destroy(mono);
             }
-
         }
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
@@ -43,7 +54,6 @@ namespace ZomC_Cards.Cards
             block.cdAdd = 1f;
             statModifiers.health = 1.25f;
             statModifiers.sizeMultiplier = 1.5f;
-
         }
 
         protected override GameObject GetCardArt()

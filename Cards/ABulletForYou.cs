@@ -18,18 +18,72 @@ namespace ZomC_Cards.Cards
     {
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            float healthToAdd = 0;
+            int ammoToAdd = 0;
+            Balancing(ref healthToAdd, ref ammoToAdd);
+            data.health *= healthToAdd;
+            gunAmmo.maxAmmo += ammoToAdd;
+        }
+
+        public void Balancing(ref float healthToAdd, ref int ammoToAdd)
+        {
             int playernum = 0;
             Player[] players = PlayerManager.instance.players.ToArray();
-
             foreach (Player p in players)
             {
                 if (p.teamID != gun.player.teamID)
                     playernum++;
             }
 
-
-            gunAmmo.maxAmmo += playernum;
-            data.maxHealth *= 1 + (playernum / 10);
+            if (playernum <= 3)
+            {
+                healthToAdd = 1 + (playernum / 10);
+                ammoToAdd = playernum;
+            }
+            else if (playernum <= 5)
+            {
+                //stats from previous tier
+                healthToAdd = 1.3f;
+                ammoToAdd = 3;
+                //stats from opponents in current tier
+                healthToAdd += ((playernum - 3) * 8) / 100;
+                ammoToAdd += (playernum - 3);
+            }
+            else if (playernum <= 7)
+            {
+                //stats from previous tiers
+                healthToAdd = 1.46f;
+                ammoToAdd = 5;
+                //stats from opponents in current tier
+                healthToAdd += ((playernum - 3) * 6) / 100;
+                ammoToAdd += (playernum - 5);
+            }
+            else if (playernum <= 10)
+            {
+                //stats from previous tier
+                healthToAdd = 1.58f;
+                ammoToAdd = 7;
+                //stats from opponents in current tier
+                healthToAdd += ((playernum - 7) * 5) / 100;
+                if (playernum == 10)
+                    ammoToAdd += 2;
+                else
+                    ammoToAdd += 1;
+            }
+            else if (playernum <= 15)
+            {
+                //stats from previous tier
+                healthToAdd = 1.73f;
+                ammoToAdd = 9;
+                //stats from opponents in current tier
+                healthToAdd += ((playernum - 10) * 3) / 100;
+                if (playernum == 15)
+                    ammoToAdd += 3;
+                else if (playernum == 13)
+                    ammoToAdd += 2;
+                else
+                    ammoToAdd += 1;
+            }
         }
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
@@ -48,7 +102,9 @@ namespace ZomC_Cards.Cards
 
         protected override string GetDescription()
         {
-            return "For each opponent you get: ";
+            Player[] players = PlayerManager.instance.players.ToArray();
+
+            return $"For having {players.Count() - 1} opponents you get: ";
         }
 
         protected override CardInfo.Rarity GetRarity()
@@ -58,21 +114,26 @@ namespace ZomC_Cards.Cards
 
         protected override CardInfoStat[] GetStats()
         {
+            float healthToAdd = 0;
+            int ammoToAdd = 0;
+            Balancing(ref healthToAdd, ref ammoToAdd);
+
+
             return new CardInfoStat[]
             {
                 new CardInfoStat
                 {
                     positive = true,
                     stat = "Ammo",
-                    amount = "+1",
+                    amount = $"+{ammoToAdd}",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 },
                 new CardInfoStat
                 {
                     positive = true,
                     stat = "health",
-                    amount = "+10%",
-                    simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
+                    amount = $"+{healthToAdd * 100}%",
+                    simepleAmount = CardInfoStat.SimpleAmount.Some
                 }
             };
         }
