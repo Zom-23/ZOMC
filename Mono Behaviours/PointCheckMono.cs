@@ -41,11 +41,21 @@ namespace ZomC_Cards.MonoBehaviours
 
         void Update()
         {
+            if (player.data.currentCards.Where(card => card.cardName == "Staying Ahead").Count() == 0)
+            {
+                Destroy();
+            }
+
             if (!happen)
             {
                 GameModeManager.AddHook(GameModeHooks.HookPointStart, CheckWinning);
                 this.happen = true;
             }
+        }
+
+        void Destroy()
+        {
+            UnityEngine.Object.Destroy(this);
         }
         static IEnumerator CheckWinning(IGameModeHandler gm)
         {

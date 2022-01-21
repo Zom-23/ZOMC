@@ -39,9 +39,22 @@ namespace ZomC_Cards.MonoBehaviours
             }
         }
 
+        void Destroy()
+        {
+            UnityEngine.Object.Destroy(this);
+        }
+
+        public void OnDestroy()
+        {
+            GameModeManager.RemoveHook(GameModeHooks.HookBattleStart, MyHook);
+        }
+
         void Update()
         {
-
+            if (player.data.currentCards.Where(card => card.cardName == "Mass Silence").Count() == 0)
+            {
+                Destroy();
+            }
         }
 
         static IEnumerator MyHook(IGameModeHandler gm)

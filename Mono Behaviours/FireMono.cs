@@ -24,6 +24,13 @@ namespace ZomC_Cards.MonoBehaviours
             hit = gameObject.GetComponent<HitInfo>();
         }
 
+        void Update()
+        {
+            if (player.data.currentCards.Where(card => card.cardName == "Sin: Wrath").Count() == 0)
+            {
+                Destroy();
+            }
+        }
 
         public void Destroy()
         {

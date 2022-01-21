@@ -49,5 +49,18 @@ namespace ZomC_Cards.MonoBehaviours
 
             return HasToReturn.canContinue;
         }
+
+        void Update()
+        {
+            if (player.data.currentCards.Where(card => card.cardName == "Sin: Lust").Count() == 0)
+            {
+                Destroy();
+            }
+        }
+
+        public void Destroy()
+        {
+            UnityEngine.Object.Destroy(this);
+        }
     }
 }

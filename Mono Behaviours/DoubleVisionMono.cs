@@ -139,6 +139,19 @@ namespace ZomC_Cards.MonoBehaviours
             newGun.objectsToSpawn = new ObjectsToSpawn[] { PreventRecursion.stopRecursionObjectToSpawn };
             //this.gun.objectsToSpawn = new ObjectsToSpawn[] { PreventRecursion.stopRecursionObjectToSpawn };
         }
+
+        void Update()
+        {
+            if (player.data.currentCards.Where(card => card.cardName == "Double Vision").Count() == 0)
+            {
+                Destroy();
+            }
+        }
+
+        void Destroy()
+        {
+            UnityEngine.Object.Destroy(this);
+        }
     }
     class DoubleViGun : Gun
     { };
