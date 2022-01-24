@@ -33,7 +33,7 @@ namespace ZomC_Cards
     {
         private const string ModId = "com.Zom.rounds.card";
         private const string ModName = "Zom Cards";
-        public const string Version = "2.1.8"; //(major.minor.patch) Now out of Beta!
+        public const string Version = "2.2.2"; //(major.minor.patch) Now out of Beta!
 
         //Start up the Cards!!
         void Start()
@@ -49,7 +49,7 @@ namespace ZomC_Cards
             CustomCard.BuildCard<MoreIsBetter>();
             CustomCard.BuildCard<ABulletForYou>();
             CustomCard.BuildCard<Gluttony>();
-            CustomCard.BuildCard<Sloth>();
+            //CustomCard.BuildCard<Sloth>();
             CustomCard.BuildCard<Wrath>();
             CustomCard.BuildCard<Envy>();
             CustomCard.BuildCard<Lust>();
@@ -57,7 +57,7 @@ namespace ZomC_Cards
             CustomCard.BuildCard<Greed>();
             CustomCard.BuildCard<PerseverancePristine>();
             CustomCard.BuildCard<SlowReload>();
-            CustomCard.BuildCard<Bigger>();
+            //CustomCard.BuildCard<Bigger>();
             CustomCard.BuildCard<PumpedUpKicks>();
             CustomCard.BuildCard<LighterAmmo>();
         }
