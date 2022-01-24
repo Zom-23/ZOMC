@@ -29,6 +29,8 @@ namespace ZomC_Cards.Cards
         {
             int playernum = 0;
             Player[] players = PlayerManager.instance.players.ToArray();
+            Gun gun = gameObject.GetComponent<Gun>();
+
             foreach (Player p in players)
             {
                 if (p.teamID != gun.player.teamID)
@@ -132,7 +134,7 @@ namespace ZomC_Cards.Cards
                 {
                     positive = true,
                     stat = "health",
-                    amount = $"+{healthToAdd * 100}%",
+                    amount = $"+{(healthToAdd - 1) * 100}%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 }
             };

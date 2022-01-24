@@ -21,15 +21,26 @@ namespace ZomC_Cards.Cards
         {
             block.BlockAction += OnBlock(player, block);
             GameModeManager.AddHook(GameModeHooks.HookPointEnd, destroyMonos);
+            
             Action<BlockTrigger.BlockTriggerType> OnBlock(Player _player, Block _block)
             {
-                return delegate (BlockTrigger.BlockTriggerType trigger)
+                if (block.sinceBlock >= 5f)
                 {
-                    ConsumeMono consumeEffect = player.gameObject.GetOrAddComponent<ConsumeMono>();
-                    block.BlockAction -= OnBlock(player, block);
-                    Unbound.Instance.ExecuteAfterSeconds(5f, () => { block.BlockAction += OnBlock(player, block); });
-                };
+                    return delegate (BlockTrigger.BlockTriggerType trigger)
+                    {
+                        ConsumeMono consumeEffect = player.gameObject.GetOrAddComponent<ConsumeMono>();
+                    };
+                }
+                else
+                    return null;
+                
             }
+        }
+
+        public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
+        {
+            var mono = player.gameObject.GetComponent<ConsumeMono>();
+            UnityEngine.GameObject.Destroy(mono);
         }
 
         IEnumerator destroyMonos(IGameModeHandler gm)

@@ -23,11 +23,10 @@ namespace ZomC_Cards.Cards
             MSilenceMono silenceEffect = player.gameObject.GetOrAddComponent<MSilenceMono>();
         }
 
-        public override void OnRemoveCard()
+        public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            Player player = gameObject.GetComponent<Player>();
-
-            //player.gameObject.
+            var mono = player.gameObject.GetComponent<DoubleViSpawner>();
+            UnityEngine.GameObject.Destroy(mono);
         }
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)

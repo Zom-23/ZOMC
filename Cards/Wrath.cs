@@ -36,6 +36,12 @@ namespace ZomC_Cards.Cards
             gun.ammo = -1;
         }
 
+        public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
+        {
+            var mono = player.gameObject.GetComponent<DoubleViSpawner>();
+            UnityEngine.GameObject.Destroy(mono);
+        }
+
         protected override GameObject GetCardArt()
         {
             return null;
