@@ -28,7 +28,9 @@ namespace ZomC_Cards.MonoBehaviours
 
         void Update()
         {
-            if(player.data.currentCards.Where(card => card.cardName == "Sin: Gluttony").Count() == 0)
+            if (gameObject.transform.parent == null)
+                return;
+            if (player.data.currentCards.Where(card => card.cardName == "Sin: Gluttony").Count() == 0)
             {
                 Destroy();
             }

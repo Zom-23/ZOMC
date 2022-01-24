@@ -41,6 +41,8 @@ namespace ZomC_Cards.MonoBehaviours
 
         void Update()
         {
+            if (gameObject.transform.parent == null)
+                return;
             if (player.data.currentCards.Where(card => card.cardName == "Staying Ahead").Count() == 0)
             {
                 Destroy();
