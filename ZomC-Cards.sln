@@ -1,9 +1,34 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZomC-Cards", "ZomC-Cards\ZomC-Cards.csproj", "{6AE3A0F8-E2A7-408C-90A0-59471CAA7C6F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZomC-Cards", "ZomC-Cards.csproj", "{6AE3A0F8-E2A7-408C-90A0-59471CAA7C6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cards", "Cards", "{D185AA66-EA1C-4C30-A73B-EB7F5A01BFB1}"
+	ProjectSection(SolutionItems) = preProject
+		ABulletForYou.cs = ABulletForYou.cs
+		AdaptiveMags.cs = AdaptiveMags.cs
+		Bigger.cs = Bigger.cs
+		DoubleVision.cs = DoubleVision.cs
+		Envy.cs = Envy.cs
+		FlappyBullets.cs = FlappyBullets.cs
+		Gluttony.cs = Gluttony.cs
+		Greed.cs = Greed.cs
+		GymCard.cs = GymCard.cs
+		LighterAmmo.cs = LighterAmmo.cs
+		Lust.cs = Lust.cs
+		MassSilence!.cs = MassSilence!.cs
+		MoreIsBetter.cs = MoreIsBetter.cs
+		PerseverancePristine.cs = PerseverancePristine.cs
+		Pride.cs = Pride.cs
+		PumpedUpKicks.cs = PumpedUpKicks.cs
+		Sloth.cs = Sloth.cs
+		SlowReload.cs = SlowReload.cs
+		StayingAhead.cs = StayingAhead.cs
+		TrainBullets.cs = TrainBullets.cs
+		Wrath.cs = Wrath.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +45,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C7CAAA3A-E874-4BF4-B1DA-42710A7E6E8C}
+		SolutionGuid = {D6757497-52E5-498B-949E-BE9BAA9D7DAC}
 	EndGlobalSection
 EndGlobal
