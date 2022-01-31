@@ -34,7 +34,7 @@ namespace ZomC_Cards
     {
         private const string ModId = "com.Zom.rounds.card";
         private const string ModName = "Zom Cards";
-        public const string Version = "2.2.5"; //(major.minor.patch) Now out of Beta!
+        public const string Version = "2.2.6"; //(major.minor.patch) Now out of Beta!
 
         //Start up the Cards!!
         void Start()
@@ -58,16 +58,17 @@ namespace ZomC_Cards
             CustomCard.BuildCard<Greed>();
             CustomCard.BuildCard<PerseverancePristine>();
             CustomCard.BuildCard<SlowReload>();
-            //CustomCard.BuildCard<Bigger>();
+            CustomCard.BuildCard<Bigger>();
             CustomCard.BuildCard<PumpedUpKicks>();
             CustomCard.BuildCard<LighterAmmo>();
-            //CustomCard.BuildCard<NineLives>();
+            CustomCard.BuildCard<NineLives>();
             CustomCard.BuildCard<Treadmill>();
             CustomCard.BuildCard<Dumbells>();
             CustomCard.BuildCard<BattleRopes>();
             CustomCard.BuildCard<Barbell>();
             CustomCard.BuildCard<PunchingBag>();
             CustomCard.BuildCard<ProteinBar>();
+            CustomCard.BuildCard<SpareMag>();
         }
     }
 }
