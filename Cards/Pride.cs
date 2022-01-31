@@ -61,21 +61,21 @@ namespace ZomC_Cards.Cards
                 },
                 new CardInfoStat
                 {
-                    positive = false,
+                    positive = true,
                     stat = "Damage Resistance",
                     amount = "70%",
                     simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
                 },
                 new CardInfoStat
                 {
-                    positive = true,
+                    positive = false,
                     stat = "When Below:",
                     amount = "",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat
                 {
-                    positive = true,
+                    positive = false,
                     stat = "Extra Damage Taken",
                     amount = "30%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
@@ -102,12 +102,14 @@ namespace ZomC_Cards.Cards
         public List<MonoBehaviour> belowDamageEffect(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             List<MonoBehaviour> effects = new List<MonoBehaviour>();
-
+            ReversibleColorEffect colorEffect = player.gameObject.AddComponent<ReversibleColorEffect>();
             ReversibleEffect effect = player.gameObject.AddComponent<ReversibleEffect>();
 
-            characterStats.GetAdditionalData().DamageReduction = -.3f;
-
+            effect.characterStatModifiers.GetAdditionalData().DamageReduction = -.3f;
+            colorEffect.SetColor(Color.gray);
+            
             effects.Add(effect);
+            effects.Add(colorEffect);
 
             return effects;
 
@@ -118,10 +120,13 @@ namespace ZomC_Cards.Cards
             List<MonoBehaviour> effects = new List<MonoBehaviour>();
 
             ReversibleEffect effect = player.gameObject.AddComponent<ReversibleEffect>();
+            ReversibleColorEffect colorEffect = player.gameObject.AddComponent<ReversibleColorEffect>();
 
-            characterStats.GetAdditionalData().DamageReduction = .7f;
+            effect.characterStatModifiers.GetAdditionalData().DamageReduction = .7f;
+            colorEffect.SetColor(Color.red);
 
             effects.Add(effect);
+            effects.Add(colorEffect);
 
             return effects;
 

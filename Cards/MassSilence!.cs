@@ -25,7 +25,7 @@ namespace ZomC_Cards.Cards
 
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            var mono = player.gameObject.GetComponent<DoubleViSpawner>();
+            var mono = player.gameObject.GetComponent<MSilenceMono>();
             UnityEngine.GameObject.Destroy(mono);
         }
 

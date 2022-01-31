@@ -19,22 +19,8 @@ namespace ZomC_Cards.Cards
 
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            block.BlockAction += OnBlock(player, block);
             GameModeManager.AddHook(GameModeHooks.HookPointEnd, destroyMonos);
-            
-            Action<BlockTrigger.BlockTriggerType> OnBlock(Player _player, Block _block)
-            {
-                if (block.sinceBlock >= 5f)
-                {
-                    return delegate (BlockTrigger.BlockTriggerType trigger)
-                    {
-                        ConsumeMono consumeEffect = player.gameObject.GetOrAddComponent<ConsumeMono>();
-                    };
-                }
-                else
-                    return null;
-                
-            }
+            ConsumeMono consume = player.gameObject.GetOrAddComponent<ConsumeMono>();
         }
 
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)

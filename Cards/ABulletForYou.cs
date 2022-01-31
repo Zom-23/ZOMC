@@ -20,20 +20,59 @@ namespace ZomC_Cards.Cards
         {
             float healthToAdd = 0;
             int ammoToAdd = 0;
-            Balancing(ref healthToAdd, ref ammoToAdd);
+            Balancing(ref healthToAdd, ref ammoToAdd, player);
             data.health *= healthToAdd;
             gunAmmo.maxAmmo += ammoToAdd;
         }
 
-        public void Balancing(ref float healthToAdd, ref int ammoToAdd)
+        public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-            int playernum = 0;
+            float healthToAdd = 0;
+            int ammoToAdd = 0;
+            int oppnum = 0;
+            Balancing(ref healthToAdd, ref ammoToAdd, gun.player);
             Player[] players = PlayerManager.instance.players.ToArray();
-            Gun gun = gameObject.GetComponent<Gun>();
-
             foreach (Player p in players)
             {
                 if (p.teamID != gun.player.teamID)
+                    oppnum++;
+            }
+
+            cardInfo.cardStats = new CardInfoStat[]
+            {
+                new CardInfoStat
+                {
+                    positive = true,
+                    stat = "Ammo",
+                    amount = $"+{ammoToAdd}",
+                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                },
+                new CardInfoStat
+                {
+                    positive = true,
+                    stat = "health",
+                    amount = $"+{(healthToAdd - 1) * 100}%",
+                    simepleAmount = CardInfoStat.SimpleAmount.Some
+                }
+            };
+
+            cardInfo.cardDestription = $"For having {oppnum} opponents you get:";
+        }
+
+        public void Balancing(ref float healthToAdd, ref int ammoToAdd, Player owner)
+        {
+            //1-3 opponents 10% health & +1 ammo for each                                   max: 30% health, +3 ammo total: 30% health, +3 ammo
+            //^4-5 opponents 8% health & +1 ammo for each                                   max: 16% health, +2 ammo total: 46% health, +5 ammo
+            //^6-7 opponents 6% health & +1 ammo for each                                   max: 12% health, +2 ammo total: 58% health, +7 ammo
+            //^8-10 opponents 5% health for each & +1 ammo at the 8th and 10th              max: 15% health, +2 ammo total: 73% health, +9 ammo
+            //^11-15 opponents 3% health for each & +1 ammo at the 11th, 13th, and 15th     max: 15% health, +3 ammo total: 88% health, +12 ammo
+
+            int playernum = 0;
+            Player[] players = PlayerManager.instance.players.ToArray();
+
+            foreach (Player p in players)
+            {
+                if (p.teamID != owner.teamID)
                     playernum++;
             }
 
@@ -88,14 +127,7 @@ namespace ZomC_Cards.Cards
             }
         }
 
-        public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
-        {
-            //1-3 opponents 10% health & +1 ammo for each                                   max: 30% health, +3 ammo total: 30% health, +3 ammo
-            //^4-5 opponents 8% health & +1 ammo for each                                   max: 16% health, +2 ammo total: 46% health, +5 ammo
-            //^6-7 opponents 6% health & +1 ammo for each                                   max: 12% health, +2 ammo total: 58% health, +7 ammo
-            //^8-10 opponents 5% health for each & +1 ammo at the 8th and 10th              max: 15% health, +2 ammo total: 73% health, +9 ammo
-            //^11-15 opponents 3% health for each & +1 ammo at the 11th, 13th, and 15th     max: 15% health, +3 ammo total: 88% health, +12 ammo
-        }
+        
 
         protected override GameObject GetCardArt()
         {
@@ -104,9 +136,8 @@ namespace ZomC_Cards.Cards
 
         protected override string GetDescription()
         {
-            Player[] players = PlayerManager.instance.players.ToArray();
 
-            return $"For having {players.Count() - 1} opponents you get: ";
+            return "Get stats based on number of oppoents";
         }
 
         protected override CardInfo.Rarity GetRarity()
@@ -116,28 +147,7 @@ namespace ZomC_Cards.Cards
 
         protected override CardInfoStat[] GetStats()
         {
-            float healthToAdd = 0;
-            int ammoToAdd = 0;
-            Balancing(ref healthToAdd, ref ammoToAdd);
-
-
-            return new CardInfoStat[]
-            {
-                new CardInfoStat
-                {
-                    positive = true,
-                    stat = "Ammo",
-                    amount = $"+{ammoToAdd}",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
-                },
-                new CardInfoStat
-                {
-                    positive = true,
-                    stat = "health",
-                    amount = $"+{(healthToAdd - 1) * 100}%",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
-                }
-            };
+            return null;
         }
 
         protected override CardThemeColor.CardThemeColorType GetTheme()

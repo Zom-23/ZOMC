@@ -3,31 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-using UnboundLib;
-using ZomC_Cards.MonoBehaviours;
-using UnboundLib.GameModes;
-//Increases damage and decreases relod if you have more points than all your opponents
+using Sonigon;
 
 namespace ZomC_Cards.Cards
 {
-    class StayingAhead : CustomCard
+    class NineLives : CustomCard
     {
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            PointCheckMono winEffect = player.gameObject.GetOrAddComponent<PointCheckMono>();
-        }
+            data.maxHealth /= 9;
+            characterStats.respawns += 9;
+            player.RPCA_SetFace(27, new Vector2(0.0f, 0.0f), 56, new Vector2(-.2f, -.2f), 31, new Vector2(.1f, -.7f), 32, new Vector2(0.0f, 0.0f));
+            AudioSource audioSource = gameObject.GetOrAddComponent<AudioSource>();
 
-        public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
-        {
-            var mono = player.gameObject.GetComponent<PointCheckMono>();
-            UnityEngine.GameObject.Destroy(mono);
-        }
-
-        public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
-        {
-            
+            //audioSource.PlayOneShot()
         }
 
         protected override GameObject GetCardArt()
@@ -37,7 +29,7 @@ namespace ZomC_Cards.Cards
 
         protected override string GetDescription()
         {
-            return "More damage and faster reload if you are winning!";
+            return "Become a cat";
         }
 
         protected override CardInfo.Rarity GetRarity()
@@ -47,17 +39,32 @@ namespace ZomC_Cards.Cards
 
         protected override CardInfoStat[] GetStats()
         {
-            return null;
+            return new CardInfoStat[]
+            {
+                new CardInfoStat
+                {
+                    positive = true,
+                    stat = "Extra Lives",
+                    amount = "+9",
+                    simepleAmount = CardInfoStat.SimpleAmount.aLotOf
+                },
+                new CardInfoStat
+                {
+                    positive = false,
+                    stat = "Health",
+                    amount = "-88%"
+                }
+            };
         }
 
         protected override CardThemeColor.CardThemeColorType GetTheme()
         {
-            return CardThemeColor.CardThemeColorType.DefensiveBlue;
+            return CardThemeColor.CardThemeColorType.NatureBrown;
         }
 
         protected override string GetTitle()
         {
-            return "Staying Ahead";
+            return "Nine Lives";
         }
 
         public override string GetModName()
