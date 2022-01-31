@@ -11,29 +11,41 @@ namespace ZomC_Cards.MonoBehaviours
     class ConsumeMono : MonoBehaviour
     {
         Player player;
+        bool ready;
 
-        private void Awake()
+        public void Awake()
         {
             player = gameObject.GetComponent<Player>();
+            ready = true;
         }
 
         private void Start()
         {
-            player.data.stats.WasDealtDamageAction += OnWasDealtDamage;
-            Unbound.Instance.ExecuteAfterSeconds(3f, () =>
-            {
-                Destroy();
-            });
         }
 
         void Update()
         {
-            if (gameObject.transform.parent == null)
-                return;
-            if (player.data.currentCards.Where(card => card.cardName == "Sin: Gluttony").Count() == 0)
+            if(ready)
             {
-                Destroy();
+                player.data.block.BlockAction += OnBlock(player, player.data.block);
             }
+        }
+
+        Action<BlockTrigger.BlockTriggerType> OnBlock(Player _player, Block _block)
+        {
+            return delegate (BlockTrigger.BlockTriggerType trigger)
+            {
+                ready = false;
+                player.data.block.BlockAction -= OnBlock(player, player.data.block);
+                Unbound.Instance.ExecuteAfterSeconds(5f, () =>
+                { ready = true; });
+
+                player.data.stats.WasDealtDamageAction += OnWasDealtDamage;
+                Unbound.Instance.ExecuteAfterSeconds(3f, () =>
+                {
+                    player.data.stats.WasDealtDamageAction -= OnWasDealtDamage;
+                });
+            };  
         }
 
         void OnWasDealtDamage(Vector2 damage, bool selfDamage)
