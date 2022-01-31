@@ -9,10 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ZomC_Cards</RootNamespace>
     <AssemblyName>ZomC-Cards</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -295,11 +294,17 @@
   <ItemGroup>
     <Compile Include="ABulletForYou.cs" />
     <Compile Include="AdaptiveMags.cs" />
+    <Compile Include="Barbell.cs" />
+    <Compile Include="BattleRopes.cs" />
     <Compile Include="Bigger.cs" />
+    <Compile Include="CatMono.cs" />
     <Compile Include="CharacterStatModifiers.cs" />
+    <Compile Include="ConsumeMono.cs" />
     <Compile Include="DoubleVision.cs" />
     <Compile Include="DoubleVisionMono.cs" />
+    <Compile Include="Dumbells.cs" />
     <Compile Include="Envy.cs" />
+    <Compile Include="FireMono.cs" />
     <Compile Include="FlappyBullets.cs" />
     <Compile Include="FlappyMono.cs" />
     <Compile Include="Gluttony.cs" />
@@ -312,21 +317,30 @@
     <Compile Include="MinionCardBase.cs" />
     <Compile Include="MoreIsBetter.cs" />
     <Compile Include="MSilenceMono.cs" />
+    <Compile Include="NineLives.cs" />
     <Compile Include="PerseverancePristine.cs" />
     <Compile Include="PointCheckMono.cs" />
     <Compile Include="PreventRecursion.cs" />
     <Compile Include="MassSilence!.cs" />
     <Compile Include="Pride.cs" />
+    <Compile Include="ProteinBar.cs" />
     <Compile Include="PumpedUpKicks.cs" />
+    <Compile Include="PunchingBag.cs" />
     <Compile Include="Sloth.cs" />
     <Compile Include="SlowReload.cs" />
+    <Compile Include="SpareMag.cs" />
     <Compile Include="SpawnBulletsEffect.cs" />
     <Compile Include="StayingAhead.cs" />
+    <Compile Include="Template.cs" />
     <Compile Include="TrainBullets.cs" />
+    <Compile Include="Treadmill.cs" />
     <Compile Include="Wrath.cs" />
     <Compile Include="ZomC_Cards.cs" />
     <Compile Include="GymCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="mixkit-little-cat-pain-meow-87.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
