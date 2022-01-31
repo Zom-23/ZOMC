@@ -31,32 +31,6 @@ namespace ZomC_Cards.Cards
             int ammoToAdd = 0;
             int oppnum = 0;
             Balancing(ref healthToAdd, ref ammoToAdd, gun.player);
-            Player[] players = PlayerManager.instance.players.ToArray();
-            foreach (Player p in players)
-            {
-                if (p.teamID != gun.player.teamID)
-                    oppnum++;
-            }
-
-            cardInfo.cardStats = new CardInfoStat[]
-            {
-                new CardInfoStat
-                {
-                    positive = true,
-                    stat = "Ammo",
-                    amount = $"+{ammoToAdd}",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
-                },
-                new CardInfoStat
-                {
-                    positive = true,
-                    stat = "health",
-                    amount = $"+{(healthToAdd - 1) * 100}%",
-                    simepleAmount = CardInfoStat.SimpleAmount.Some
-                }
-            };
-
-            cardInfo.cardDestription = $"For having {oppnum} opponents you get:";
         }
 
         public void Balancing(ref float healthToAdd, ref int ammoToAdd, Player owner)
@@ -137,7 +111,7 @@ namespace ZomC_Cards.Cards
         protected override string GetDescription()
         {
 
-            return "Get stats based on number of oppoents";
+            return "For each opponent get: ";
         }
 
         protected override CardInfo.Rarity GetRarity()
@@ -147,7 +121,30 @@ namespace ZomC_Cards.Cards
 
         protected override CardInfoStat[] GetStats()
         {
-            return null;
+            return new CardInfoStat[]
+            {
+                new CardInfoStat
+                {
+                    positive = true,
+                    stat = "Health",
+                    amount = "+10%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat
+                {
+                    positive = true,
+                    stat = "Ammo",
+                    amount = "+1",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat
+                {
+                    positive = false,
+                    stat = "Decreasing returns",
+                    amount = "",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                }
+            };
         }
 
         protected override CardThemeColor.CardThemeColorType GetTheme()
