@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ZomC_Cards</RootNamespace>
     <AssemblyName>ZomC-Cards</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,47 +35,43 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\Libs\0Harmony.dll</HintPath>
+      <HintPath>Libs\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx">
-      <HintPath>..\Libs\BepInEx.dll</HintPath>
+      <HintPath>Libs\BepInEx.dll</HintPath>
     </Reference>
     <Reference Include="CardChoiceSpawnUniqueCardPatch">
-      <HintPath>..\Libs\CardChoiceSpawnUniqueCardPatch.dll</HintPath>
+      <HintPath>Libs\CardChoiceSpawnUniqueCardPatch.dll</HintPath>
     </Reference>
     <Reference Include="ModdingUtils">
-      <HintPath>..\Libs\ModdingUtils.dll</HintPath>
+      <HintPath>Libs\ModdingUtils.dll</HintPath>
     </Reference>
-    <Reference Include="Photon3Unity3D, Version=4.1.4.8, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\Photon3Unity3D.dll</HintPath>
+    <Reference Include="Photon3Unity3D">
+      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="PhotonChat">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\PhotonChat.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\PhotonChat.dll</HintPath>
     </Reference>
-    <Reference Include="PhotonRealtime, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\PhotonRealtime.dll</HintPath>
+    <Reference Include="PhotonRealtime">
+      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\PhotonRealtime.dll</HintPath>
     </Reference>
-    <Reference Include="PhotonUnityNetworking, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\PhotonUnityNetworking.dll</HintPath>
+    <Reference Include="PhotonUnityNetworking">
+      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\PhotonUnityNetworking.dll</HintPath>
     </Reference>
     <Reference Include="PhotonUnityNetworking.Demos">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\PhotonUnityNetworking.Demos.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\PhotonUnityNetworking.Demos.dll</HintPath>
     </Reference>
     <Reference Include="PhotonUnityNetworking.Utilities">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\PhotonUnityNetworking.Utilities.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\PhotonUnityNetworking.Utilities.dll</HintPath>
     </Reference>
     <Reference Include="PhotonWebSocket">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\PhotonWebSocket.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\PhotonWebSocket.dll</HintPath>
     </Reference>
-    <Reference Include="SonigonAudioEngine.Runtime, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\SonigonAudioEngine.Runtime.dll</HintPath>
+    <Reference Include="SonigonAudioEngine.Runtime">
+      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\SonigonAudioEngine.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -89,258 +86,70 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="UnboundLib">
-      <HintPath>..\Libs\UnboundLib.dll</HintPath>
+      <HintPath>Libs\UnboundLib.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.AccessibilityModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.AccessibilityModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.AIModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.AIModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.AnimationModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ARModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.ARModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.AssetBundleModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.AudioModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.BaselibModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.BaselibModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ClothModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.ClothModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ClusterInputModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.ClusterInputModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ClusterRendererModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.ClusterRendererModule.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CrashReportingModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.CrashReportingModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.DirectorModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.DirectorModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.FileSystemHttpModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.FileSystemHttpModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.GameCenterModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.GameCenterModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.GridModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.GridModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.HotReloadModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.HotReloadModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.InputModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.InputModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.JSONSerializeModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.LocalizationModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.LocalizationModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ParticleSystemModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.PerformanceReportingModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.PerformanceReportingModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Physics2DModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ProfilerModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.ProfilerModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.Purchasing.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.ScreenCaptureModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.ScreenCaptureModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.SharedInternalsModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.SharedInternalsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.SpatialTracking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.SpriteMaskModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.SpriteMaskModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.SpriteShapeModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.SpriteShapeModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.StreamingModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.StreamingModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.StyleSheetsModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.StyleSheetsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.SubstanceModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.SubstanceModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TerrainModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.TerrainModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TerrainPhysicsModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.TerrainPhysicsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TextCoreModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.TextCoreModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TilemapModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.TilemapModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Timeline">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TimelineModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.TimelineModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TLSModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.TLSModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UIElementsModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.UIElementsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UIModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.UIModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UmbraModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.UmbraModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UNETModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.UNETModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityAnalyticsModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.UnityAnalyticsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityConnectModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.UnityConnectModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityTestProtocolModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.UnityTestProtocolModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.VehiclesModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.VehiclesModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.VFXModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.VFXModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.VideoModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.VideoModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.VRModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.VRModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.WindModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.WindModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.XRModule">
-      <HintPath>..\Libs\ROUNDS\Rounds_Data\Managed\UnityEngine.XRModule.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\Steam\steamapps\common\ROUNDS\Rounds_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ABulletForYou.cs" />
-    <Compile Include="AdaptiveMags.cs" />
-    <Compile Include="Barbell.cs" />
-    <Compile Include="BattleRopes.cs" />
-    <Compile Include="Bigger.cs" />
-    <Compile Include="CatMono.cs" />
-    <Compile Include="CharacterStatModifiers.cs" />
-    <Compile Include="ConsumeMono.cs" />
-    <Compile Include="DoubleVision.cs" />
-    <Compile Include="DoubleVisionMono.cs" />
-    <Compile Include="Dumbells.cs" />
-    <Compile Include="Envy.cs" />
-    <Compile Include="FireMono.cs" />
-    <Compile Include="FlappyBullets.cs" />
-    <Compile Include="FlappyMono.cs" />
-    <Compile Include="Gluttony.cs" />
-    <Compile Include="Greed.cs" />
-    <Compile Include="HealthHandler_Patch.cs" />
-    <Compile Include="KlutzFingers.cs" />
-    <Compile Include="LighterAmmo.cs" />
-    <Compile Include="Lust.cs" />
-    <Compile Include="LustMono.cs" />
-    <Compile Include="MinionCardBase.cs" />
-    <Compile Include="MoreIsBetter.cs" />
-    <Compile Include="MSilenceMono.cs" />
-    <Compile Include="NineLives.cs" />
-    <Compile Include="PerseverancePristine.cs" />
-    <Compile Include="PointCheckMono.cs" />
-    <Compile Include="PreventRecursion.cs" />
-    <Compile Include="MassSilence!.cs" />
-    <Compile Include="Pride.cs" />
-    <Compile Include="ProteinBar.cs" />
-    <Compile Include="PumpedUpKicks.cs" />
-    <Compile Include="PunchingBag.cs" />
-    <Compile Include="Sloth.cs" />
-    <Compile Include="SlowReload.cs" />
-    <Compile Include="SpareMag.cs" />
-    <Compile Include="SpawnBulletsEffect.cs" />
-    <Compile Include="StayingAhead.cs" />
-    <Compile Include="Template.cs" />
-    <Compile Include="TrainBullets.cs" />
-    <Compile Include="Treadmill.cs" />
-    <Compile Include="Wrath.cs" />
+    <Compile Include="Cards\ABulletForYou.cs" />
+    <Compile Include="Cards\AdaptiveMags.cs" />
+    <Compile Include="Cards\Barbell.cs" />
+    <Compile Include="Cards\BattleRopes.cs" />
+    <Compile Include="Cards\Bigger.cs" />
+    <Compile Include="Cards\DoubleVision.cs" />
+    <Compile Include="Cards\Dumbells.cs" />
+    <Compile Include="Cards\Envy.cs" />
+    <Compile Include="Cards\FlappyBullets.cs" />
+    <Compile Include="Cards\Gluttony.cs" />
+    <Compile Include="Cards\Greed.cs" />
+    <Compile Include="Cards\GymCard.cs" />
+    <Compile Include="Cards\KlutzFingers.cs" />
+    <Compile Include="Cards\LighterAmmo.cs" />
+    <Compile Include="Cards\Lust.cs" />
+    <Compile Include="Cards\MassSilence!.cs" />
+    <Compile Include="Cards\MoreIsBetter.cs" />
+    <Compile Include="Cards\NineLives.cs" />
+    <Compile Include="Cards\PerseverancePristine.cs" />
+    <Compile Include="Cards\Pride.cs" />
+    <Compile Include="Cards\ProteinBar.cs" />
+    <Compile Include="Cards\PumpedUpKicks.cs" />
+    <Compile Include="Cards\PunchingBag.cs" />
+    <Compile Include="Cards\Sloth.cs" />
+    <Compile Include="Cards\SlowReload.cs" />
+    <Compile Include="Cards\SpareMag.cs" />
+    <Compile Include="Cards\StayingAhead.cs" />
+    <Compile Include="Cards\Template.cs" />
+    <Compile Include="Cards\TrainBullets.cs" />
+    <Compile Include="Cards\Treadmill.cs" />
+    <Compile Include="Cards\Wrath.cs" />
+    <Compile Include="Extensions &amp; Patches\CharacterStatModifiers.cs" />
+    <Compile Include="Extensions &amp; Patches\HealthHandler_Patch.cs" />
+    <Compile Include="Extensions &amp; Patches\MinionCardBase.cs" />
+    <Compile Include="Extensions &amp; Patches\PreventRecursion.cs" />
+    <Compile Include="Extensions &amp; Patches\SpawnBulletsEffect.cs" />
+    <Compile Include="Mono Behaviours\CatMono.cs" />
+    <Compile Include="Mono Behaviours\ConsumeMono.cs" />
+    <Compile Include="Mono Behaviours\DoubleVisionMono.cs" />
+    <Compile Include="Mono Behaviours\FireMono.cs" />
+    <Compile Include="Mono Behaviours\FlappyMono.cs" />
+    <Compile Include="Mono Behaviours\LustMono.cs" />
+    <Compile Include="Mono Behaviours\MSilenceMono.cs" />
+    <Compile Include="Mono Behaviours\PointCheckMono.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="ZomC_Cards.cs" />
-    <Compile Include="GymCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="mixkit-little-cat-pain-meow-87.wav" />
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

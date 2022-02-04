@@ -23,14 +23,11 @@ namespace ZomC_Cards.Cards
             Balancing(ref healthToAdd, ref ammoToAdd, player);
             data.health *= healthToAdd;
             gunAmmo.maxAmmo += ammoToAdd;
+            
         }
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-            float healthToAdd = 0;
-            int ammoToAdd = 0;
-            int oppnum = 0;
-            Balancing(ref healthToAdd, ref ammoToAdd, gun.player);
         }
 
         public void Balancing(ref float healthToAdd, ref int ammoToAdd, Player owner)
