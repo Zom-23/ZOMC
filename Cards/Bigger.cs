@@ -12,7 +12,7 @@ namespace ZomC_Cards.Cards
     {
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            gun.projectileSize *= 1.2f;
+            gun.projectileSize *= 5f;
             gun.ShootPojectileAction += increaseSize();
 
             System.Action<UnityEngine.GameObject> increaseSize()

@@ -7,6 +7,7 @@ using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
 using Sonigon;
+using ZomC_Cards.Extensions;
 
 namespace ZomC_Cards.Cards
 {
@@ -16,8 +17,11 @@ namespace ZomC_Cards.Cards
         {
             data.maxHealth *= .5f;
             characterStats.respawns += 8;
-            block.cooldown += 10f;
+            block.cooldown += 5f;
             player.RPCA_SetFace(27, new Vector2(0.0f, 0.0f), 56, new Vector2(-.2f, -.2f), 31, new Vector2(.1f, -.7f), 32, new Vector2(0.0f, 0.0f));
+            characterStats.GetAdditionalData().useNewRespawnTime = true;
+            characterStats.GetAdditionalData().newRespawnTime = 0.78f;
+
             //audioSource.PlayOneShot()
         }
 
@@ -58,8 +62,15 @@ namespace ZomC_Cards.Cards
                 {
                     positive = false,
                     stat = "Block cooldown",
-                    amount = "+10s",
+                    amount = "+5s",
                     simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
+                },
+                new CardInfoStat
+                {
+                    positive = false,
+                    stat = "Respawn Time",
+                    amount = "Shorter",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }

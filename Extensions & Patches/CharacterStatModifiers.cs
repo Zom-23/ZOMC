@@ -14,15 +14,19 @@ namespace ZomC_Cards.Extensions
     // ADD FIELDS TO CHARACTERSTATMODIFIERS
     public partial class CharacterStatModifiersAdditionalData
     {
-        public Dictionary<(int, int), int> minionIDstoCardIndxMap;
-        public Dictionary<(int, int), int> oldMinionIDstoCardIndxMap;
+        //public Dictionary<(int, int), int> minionIDstoCardIndxMap;
+        //public Dictionary<(int, int), int> oldMinionIDstoCardIndxMap;
         public float DamageReduction;
+        public bool useNewRespawnTime;
+        public float newRespawnTime;
 
         public CharacterStatModifiersAdditionalData()
         {
-            minionIDstoCardIndxMap = new Dictionary<(int, int), int>();
-            oldMinionIDstoCardIndxMap = new Dictionary<(int, int), int>();
+            //minionIDstoCardIndxMap = new Dictionary<(int, int), int>();
+            //oldMinionIDstoCardIndxMap = new Dictionary<(int, int), int>();
             DamageReduction = 0f;
+            useNewRespawnTime = false;
+            newRespawnTime = 0f;
         }
     }
     public static class CharacterStatModifiersExtension
@@ -50,8 +54,8 @@ namespace ZomC_Cards.Extensions
         {
             private static void Prefix(CharacterStatModifiers __instance)
             {
-                __instance.GetAdditionalData().oldMinionIDstoCardIndxMap = new Dictionary<(int, int), int>(__instance.GetAdditionalData().minionIDstoCardIndxMap);
-                __instance.GetAdditionalData().minionIDstoCardIndxMap = new Dictionary<(int, int), int>() { };
+                //__instance.GetAdditionalData().oldMinionIDstoCardIndxMap = new Dictionary<(int, int), int>(__instance.GetAdditionalData().minionIDstoCardIndxMap);
+                //__instance.GetAdditionalData().minionIDstoCardIndxMap = new Dictionary<(int, int), int>() { };
                 __instance.GetAdditionalData().DamageReduction = 0f;
             }
         }
