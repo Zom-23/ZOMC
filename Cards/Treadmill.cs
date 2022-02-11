@@ -55,7 +55,7 @@ namespace ZomC_Cards.Cards
                 },
                 new CardInfoStat
                 {
-                    positive = false,
+                    positive = true,
                     stat = "Health",
                     amount = "+20%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
