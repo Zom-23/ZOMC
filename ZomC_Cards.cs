@@ -69,6 +69,8 @@ namespace ZomC_Cards
             CustomCard.BuildCard<PunchingBag>();
             CustomCard.BuildCard<ProteinBar>();
             CustomCard.BuildCard<SpareMag>();
+            CustomCard.BuildCard<Microscopic>();
+            CustomCard.BuildCard<BEEGGun>();
         }
     }
 }

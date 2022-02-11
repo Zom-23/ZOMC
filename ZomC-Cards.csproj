@@ -103,6 +103,7 @@
     <Compile Include="Cards\AdaptiveMags.cs" />
     <Compile Include="Cards\Barbell.cs" />
     <Compile Include="Cards\BattleRopes.cs" />
+    <Compile Include="Cards\BEEGGun.cs" />
     <Compile Include="Cards\Bigger.cs" />
     <Compile Include="Cards\DoubleVision.cs" />
     <Compile Include="Cards\Dumbells.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Cards\LighterAmmo.cs" />
     <Compile Include="Cards\Lust.cs" />
     <Compile Include="Cards\MassSilence!.cs" />
+    <Compile Include="Cards\Microscopic.cs" />
     <Compile Include="Cards\MoreIsBetter.cs" />
     <Compile Include="Cards\NineLives.cs" />
     <Compile Include="Cards\PerseverancePristine.cs" />
@@ -133,6 +135,7 @@
     <Compile Include="Extensions &amp; Patches\CharacterStatModifiers.cs" />
     <Compile Include="Extensions &amp; Patches\HealthHandler_Patch.cs" />
     <Compile Include="Extensions &amp; Patches\MinionCardBase.cs" />
+    <Compile Include="Extensions &amp; Patches\PlayerStatus.cs" />
     <Compile Include="Extensions &amp; Patches\PreventRecursion.cs" />
     <Compile Include="Extensions &amp; Patches\SpawnBulletsEffect.cs" />
     <Compile Include="Mono Behaviours\CatMono.cs" />
@@ -143,6 +146,7 @@
     <Compile Include="Mono Behaviours\LustMono.cs" />
     <Compile Include="Mono Behaviours\MSilenceMono.cs" />
     <Compile Include="Mono Behaviours\PointCheckMono.cs" />
+    <Compile Include="Mono Behaviours\Squish.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="ZomC_Cards.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

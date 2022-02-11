@@ -71,6 +71,7 @@ namespace ZomC_Cards.Cards
                     }
                 }
                 enemyCards.Clear();
+                rareCards.Clear();
             }
 
             CardInfo[] _cardsToAdd = cardsToAdd.ToArray();
