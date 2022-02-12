@@ -19,7 +19,7 @@ namespace ZomC_Cards.Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            statModifiers.sizeMultiplier = .01f;
+            statModifiers.sizeMultiplier = .05f;
             statModifiers.health = .8f;
             gun.damage = 1.3f;
             gun.reloadTimeAdd = -.5f;
