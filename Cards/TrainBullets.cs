@@ -56,7 +56,7 @@ namespace ZomC_Cards.Cards
         }
 
         protected override UnityEngine.GameObject GetCardArt()
-        { return null; }
+        { return ZomCards.TrainBulletsArt; }
 
         protected override string GetDescription()
         {

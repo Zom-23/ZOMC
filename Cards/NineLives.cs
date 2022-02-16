@@ -20,7 +20,7 @@ namespace ZomC_Cards.Cards
             block.cooldown += 5f;
             player.RPCA_SetFace(27, new Vector2(0.0f, 0.0f), 56, new Vector2(-.2f, -.2f), 31, new Vector2(.1f, -.7f), 32, new Vector2(0.0f, 0.0f));
             characterStats.GetAdditionalData().useNewRespawnTime = true;
-            characterStats.GetAdditionalData().newRespawnTime = 0.78f;
+            characterStats.GetAdditionalData().newRespawnTime = 0.2f;
 
             //audioSource.PlayOneShot()
         }
