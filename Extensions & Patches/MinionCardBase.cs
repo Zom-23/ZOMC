@@ -1,4 +1,4 @@
-﻿using UnboundLib.Cards;
+﻿/*using UnboundLib.Cards;
 using UnityEngine;
 using UnboundLib;
 using TMPro;
@@ -214,3 +214,4 @@ namespace ZomC_Cards.Cards
         }
     }
 }
+*/
