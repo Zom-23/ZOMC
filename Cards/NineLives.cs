@@ -48,7 +48,7 @@ namespace ZomC_Cards.Cards
                 {
                     positive = true,
                     stat = "Extra Lives",
-                    amount = "+9",
+                    amount = "+8",
                     simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 },
                 new CardInfoStat

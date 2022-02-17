@@ -14,12 +14,19 @@ namespace ZomC_Cards.Cards
     {
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-
+            //adjust gun size
+            gun.transform.localScale = new Vector3(5f, 5f);
+            foreach(var p in gun.projectiles)
+            {
+                p.objectToSpawn.transform.localScale = new Vector3(5f, 5f);
+                p.objectToSpawn.isStatic = true;
+            }
+            gun.damage /= 5;
+            
         }
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.size = 5f;
             gun.damage = 2f;
             gun.attackSpeedMultiplier = .7f;
             gun.recoilMuiltiplier = 2f;
