@@ -30,15 +30,23 @@ namespace ZomC_Cards
     [BepInPlugin(ModId, ModName, Version)] //Make it an acutal plugin
     [BepInProcess("Rounds.exe")]
 
+    
+
+
     public class ZomCards : BaseUnityPlugin
     {
         private const string ModId = "com.Zom.rounds.card";
         private const string ModName = "Zom Cards";
         public const string Version = "2.2.6"; //(major.minor.patch) Now out of Beta!
 
+        private static readonly AssetBundle zomcAssets = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("zomcassets", typeof(ZomCards).Assembly);
+        public static GameObject TrainBulletsArt = zomcAssets.LoadAsset<GameObject>("C_TrainBullets");
+
         //Start up the Cards!!
-        void Start()
+        public void Start()
         {
+            
+
             UnityEngine.Debug.Log("[ZOMC] Loading Cards");
             CustomCard.BuildCard<GymCard>();
             CustomCard.BuildCard<DoubleVision>();

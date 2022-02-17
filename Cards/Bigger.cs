@@ -12,12 +12,18 @@ namespace ZomC_Cards.Cards
     {
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            gun.projectileSize *= 5f;
+            foreach(var p in gun.objectsToSpawn)
+            {
+                p.AddToProjectile.transform.localScale = new Vector3(1.1f, 1.1f);
+            }
             gun.ShootPojectileAction += increaseSize();
 
             System.Action<UnityEngine.GameObject> increaseSize()
             {
-                gun.projectileSize *= 1.1f;
+                foreach (var p in gun.objectsToSpawn)
+                {
+                    p.AddToProjectile.transform.localScale = new Vector3(1.1f, 1.1f);
+                }
                 return null;
             }
         }
@@ -39,12 +45,21 @@ namespace ZomC_Cards.Cards
 
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Uncommon;
         }
 
         protected override CardInfoStat[] GetStats()
         {
-            return null;
+            return new CardInfoStat[]
+            {
+                new CardInfoStat
+                {
+                    positive = true,
+                    stat = "Mass",
+                    amount = "Increasing",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+            };
         }
 
         protected override CardThemeColor.CardThemeColorType GetTheme()
