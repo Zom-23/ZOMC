@@ -12,17 +12,17 @@ namespace ZomC_Cards.Cards
     {
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            foreach(var p in gun.objectsToSpawn)
+            foreach(var p in gun.projectiles)
             {
-                p.AddToProjectile.transform.localScale = new Vector3(1.1f, 1.1f);
+                p.objectToSpawn.transform.localScale = new Vector3(1.3f, 1.3f);
             }
             gun.ShootPojectileAction += increaseSize();
 
             System.Action<UnityEngine.GameObject> increaseSize()
             {
-                foreach (var p in gun.objectsToSpawn)
+                foreach (var p in gun.projectiles)
                 {
-                    p.AddToProjectile.transform.localScale = new Vector3(1.1f, 1.1f);
+                    p.objectToSpawn.transform.localScale = new Vector3(p.objectToSpawn.transform.localScale.x + .1f, p.objectToSpawn.transform.localScale.y + .1f);
                 }
                 return null;
             }
