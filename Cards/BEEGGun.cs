@@ -16,12 +16,7 @@ namespace ZomC_Cards.Cards
         {
             //adjust gun size
             gun.transform.localScale = new Vector3(5f, 5f);
-            foreach(var p in gun.projectiles)
-            {
-                p.objectToSpawn.transform.localScale = new Vector3(5f, 5f);
-                p.objectToSpawn.isStatic = true;
-            }
-            gun.damage /= 5;
+            gun.damage *= 1.3f;
             
         }
 
