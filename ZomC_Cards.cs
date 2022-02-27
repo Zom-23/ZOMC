@@ -69,7 +69,7 @@ namespace ZomC_Cards
             CustomCard.BuildCard<Bigger>();
             CustomCard.BuildCard<PumpedUpKicks>();
             CustomCard.BuildCard<LighterAmmo>();
-            CustomCard.BuildCard<NineLives>();
+            //CustomCard.BuildCard<NineLives>();
             CustomCard.BuildCard<Treadmill>();
             CustomCard.BuildCard<Dumbells>();
             CustomCard.BuildCard<BattleRopes>();

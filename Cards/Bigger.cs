@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using UnboundLib.Cards;
 using UnityEngine;
+using UnboundLib.GameModes;
+using System.Collections;
 
 namespace ZomC_Cards.Cards
 {
@@ -12,19 +14,27 @@ namespace ZomC_Cards.Cards
     {
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
+            int shootCount = 1;
             foreach(var p in gun.projectiles)
             {
                 p.objectToSpawn.transform.localScale = new Vector3(1.1f, 1.1f);
             }
-            gun.ShootPojectileAction += increaseSize();
+            characterStats.OnReloadDoneAction += increaseSize; //Make sure the bursts is always equal to the max ammo by checking it after each reload
 
-            System.Action<UnityEngine.GameObject> increaseSize()
+            void increaseSize(int i)
             {
+                shootCount++;
                 foreach (var p in gun.projectiles)
                 {
-                    p.objectToSpawn.transform.localScale = new Vector3(p.objectToSpawn.transform.localScale.x * 1.1f, p.objectToSpawn.transform.localScale.y * 1.1f);
+                    p.objectToSpawn.transform.localScale = new Vector3(shootCount * 1.1f, shootCount * 1.1f);
                 }
-                return null;
+            }
+
+            GameModeManager.AddHook(GameModeHooks.HookPointEnd, MyHook);
+            IEnumerator MyHook(IGameModeHandler gm)
+            {
+                shootCount = 1;
+                yield break;
             }
         }
 
@@ -40,7 +50,7 @@ namespace ZomC_Cards.Cards
 
         protected override string GetDescription()
         {
-            return "Increasingly large bullets";
+            return "Reload with a larger caliber each time";
         }
 
         protected override CardInfo.Rarity GetRarity()
