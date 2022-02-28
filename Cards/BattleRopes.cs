@@ -18,7 +18,7 @@ namespace ZomC_Cards.Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.randomBounces = 2;
+            gun.reflects = 2;
             statModifiers.health = 1.2f;
         }
 

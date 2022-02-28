@@ -83,7 +83,7 @@ namespace ZomC_Cards.Cards
                 new CardInfoStat
                 {
                     positive = false,
-                    stat = "Take Damage Over Time",
+                    stat = "Damage Taken Over",
                     amount = "3s",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },

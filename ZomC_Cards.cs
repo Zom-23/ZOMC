@@ -37,7 +37,7 @@ namespace ZomC_Cards
     {
         private const string ModId = "com.Zom.rounds.card";
         private const string ModName = "Zom Cards";
-        public const string Version = "2.2.6"; //(major.minor.patch) Now out of Beta!
+        public const string Version = "2.3.0"; //(major.minor.patch) Now out of Beta!
 
         private static readonly AssetBundle zomcAssets = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("zomcassets", typeof(ZomCards).Assembly);
         public static GameObject TrainBulletsArt = zomcAssets.LoadAsset<GameObject>("C_TrainBullets");
@@ -69,7 +69,7 @@ namespace ZomC_Cards
             CustomCard.BuildCard<Bigger>();
             CustomCard.BuildCard<PumpedUpKicks>();
             CustomCard.BuildCard<LighterAmmo>();
-            CustomCard.BuildCard<NineLives>();
+            //CustomCard.BuildCard<NineLives>();
             CustomCard.BuildCard<Treadmill>();
             CustomCard.BuildCard<Dumbells>();
             CustomCard.BuildCard<BattleRopes>();
