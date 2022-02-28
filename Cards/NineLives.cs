@@ -15,12 +15,25 @@ namespace ZomC_Cards.Cards
     {
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            data.maxHealth *= .5f;
+            int OneTimeUseRespawns = 8;
+            data.maxHealth *= .75f;
             characterStats.respawns += 8;
-            block.cooldown += 5f;
             player.RPCA_SetFace(27, new Vector2(0.0f, 0.0f), 56, new Vector2(-.2f, -.2f), 31, new Vector2(.1f, -.7f), 32, new Vector2(0.0f, 0.0f));
             characterStats.GetAdditionalData().useNewRespawnTime = true;
             characterStats.GetAdditionalData().newRespawnTime = 0.2f;
+
+            health.reviveAction += removeRespawn;
+
+            void removeRespawn()
+            {
+                if (OneTimeUseRespawns == 0)
+                    return;
+                else
+                {
+                    characterStats.respawns--;
+                    OneTimeUseRespawns--;
+                }
+            }
 
             //audioSource.PlayOneShot()
         }
@@ -47,7 +60,7 @@ namespace ZomC_Cards.Cards
                 new CardInfoStat
                 {
                     positive = true,
-                    stat = "Extra Lives",
+                    stat = "One Time Use Lives",
                     amount = "+8",
                     simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 },
@@ -55,15 +68,8 @@ namespace ZomC_Cards.Cards
                 {
                     positive = false,
                     stat = "Health",
-                    amount = "-50%",
+                    amount = "-25%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLotLower
-                },
-                new CardInfoStat
-                {
-                    positive = false,
-                    stat = "Block cooldown",
-                    amount = "+5s",
-                    simepleAmount = CardInfoStat.SimpleAmount.aHugeAmountOf
                 },
                 new CardInfoStat
                 {
