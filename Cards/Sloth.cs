@@ -31,9 +31,11 @@ namespace ZomC_Cards.Cards
                 {
                     if (p.teamID != player.teamID)
                     {
-                        p.data.stats.RPCA_AddSlow(2);
+                        p.data.stats.RPCA_AddSlow(.2f);
                     }
                 }
+                player.ExecuteAfterSeconds(3f, () =>
+                { SlowAll(gm); });
                 yield break;
             }
         }
