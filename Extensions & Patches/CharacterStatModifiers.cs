@@ -19,6 +19,7 @@ namespace ZomC_Cards.Extensions
         public float DamageReduction;
         public bool useNewRespawnTime;
         public float newRespawnTime;
+        public float recoil;
 
         public CharacterStatModifiersAdditionalData()
         {
@@ -27,6 +28,7 @@ namespace ZomC_Cards.Extensions
             DamageReduction = 0f;
             useNewRespawnTime = false;
             newRespawnTime = 0f;
+            recoil = 0;
         }
     }
     public static class CharacterStatModifiersExtension
@@ -57,6 +59,9 @@ namespace ZomC_Cards.Extensions
                 //__instance.GetAdditionalData().oldMinionIDstoCardIndxMap = new Dictionary<(int, int), int>(__instance.GetAdditionalData().minionIDstoCardIndxMap);
                 //__instance.GetAdditionalData().minionIDstoCardIndxMap = new Dictionary<(int, int), int>() { };
                 __instance.GetAdditionalData().DamageReduction = 0f;
+                __instance.GetAdditionalData().recoil = 0;
+                __instance.GetAdditionalData().newRespawnTime = 0;
+                __instance.GetAdditionalData().useNewRespawnTime = false;
             }
         }
 

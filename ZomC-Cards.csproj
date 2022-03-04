@@ -103,6 +103,10 @@
     <Reference Include="UnityEngine.ParticleSystemModule">
       <HintPath>..\ROUNDS\Rounds_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ROUNDS\Rounds_Data\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cards\ABulletForYou.cs" />
@@ -140,6 +144,7 @@
     <Compile Include="Cards\Wrath.cs" />
     <Compile Include="Extensions &amp; Patches\CharacterStatModifiers.cs" />
     <Compile Include="Extensions &amp; Patches\DeathEffect_Patch.cs" />
+    <Compile Include="Extensions &amp; Patches\GunAmmoPatch.cs" />
     <Compile Include="Extensions &amp; Patches\HealthHandler_Patch.cs" />
     <Compile Include="Extensions &amp; Patches\MinionCardBase.cs" />
     <Compile Include="Extensions &amp; Patches\PlayerStatus.cs" />

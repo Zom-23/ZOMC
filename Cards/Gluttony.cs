@@ -96,9 +96,16 @@ namespace ZomC_Cards.Cards
                 new CardInfoStat
                 {
                     positive = false,
-                    stat = "Block cd",
+                    stat = "Block cooldown",
                     amount = "+1s",
                     simepleAmount = CardInfoStat.SimpleAmount.aLotOf
+                },
+                new CardInfoStat
+                {
+                    positive = false,
+                    stat = "Ability cooldown",
+                    amount = "2s",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }

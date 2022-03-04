@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnboundLib;
 using UnboundLib.Cards;
 using UnityEngine;
-
+using ZomC_Cards.Extensions;
 
 namespace ZomC_Cards.Cards
 {
@@ -16,15 +16,14 @@ namespace ZomC_Cards.Cards
         {
             //adjust gun size
             gun.transform.localScale = new Vector3(5f, 5f);
-
-            
+            characterStats.GetAdditionalData().recoil += .5f;
         }
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
+            cardInfo.allowMultiple = false;
             gun.damage = 2f;
             gun.attackSpeedMultiplier = .7f;
-            gun.recoilMuiltiplier = 2f;
         }
 
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -69,7 +68,7 @@ namespace ZomC_Cards.Cards
                 {
                     positive = false,
                     stat = "Recoil",
-                    amount = "100%",
+                    amount = "+50",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

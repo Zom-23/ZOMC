@@ -19,11 +19,9 @@ namespace ZomC_Cards.Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            statModifiers.sizeMultiplier = .05f;
-            statModifiers.health = .8f;
-            gun.damage = 1.3f;
-            gun.reloadTimeAdd = -.5f;
-            gun.recoilMuiltiplier = 1.5f;
+            statModifiers.sizeMultiplier = .2f;
+            statModifiers.health = .4f;
+            cardInfo.allowMultiple = false;
         }
 
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -53,36 +51,15 @@ namespace ZomC_Cards.Cards
                 new CardInfoStat
                 {
                     positive = true,
-                    stat = "Damage",
-                    amount = "+30%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat
-                {
-                    positive = true,
-                    stat = "Reload Time",
-                    amount = "-.5s",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat
-                {
-                    positive = true,
                     stat = "Smaller",
-                    amount = "99%",
+                    amount = "80%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat
                 {
                     positive = false,
                     stat = "Health",
-                    amount = "-20%",
-                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
-                },
-                new CardInfoStat
-                {
-                    positive = false,
-                    stat = "Recoil",
-                    amount = "+50%",
+                    amount = "-60%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

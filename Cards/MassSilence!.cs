@@ -32,6 +32,7 @@ namespace ZomC_Cards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
             cardInfo.allowMultiple = false;
+            gun.attackSpeedMultiplier = .9f;
         }
 
         protected override UnityEngine.GameObject GetCardArt()
@@ -53,7 +54,10 @@ namespace ZomC_Cards.Cards
             {
                 new CardInfoStat
                 {
-
+                    positive = false,
+                    stat = "Attack Speed",
+                    amount = "-10%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }

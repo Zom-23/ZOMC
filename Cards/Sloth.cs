@@ -47,6 +47,7 @@ namespace ZomC_Cards.Cards
             statModifiers.movementSpeed = .8f;
             statModifiers.lifeSteal = 1.5f;
             statModifiers.secondsToTakeDamageOver = 3f;
+            statModifiers.health = 1.2f;
         }
 
         protected override GameObject GetCardArt()
@@ -81,6 +82,13 @@ namespace ZomC_Cards.Cards
                     stat = "Life Steal",
                     amount = "+50%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
+                },
+                new CardInfoStat
+                {
+                    positive = true,
+                    stat = "Health",
+                    amount = "+20%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat
                 {

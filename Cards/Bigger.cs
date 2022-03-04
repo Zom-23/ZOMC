@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnboundLib.Cards;
+using UnboundLib.GameModes;
 using UnityEngine;
 
 namespace ZomC_Cards.Cards
@@ -12,19 +13,23 @@ namespace ZomC_Cards.Cards
     {
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
-            foreach(var p in gun.projectiles)
-            {
-                p.objectToSpawn.transform.localScale = new Vector3(1.3f, 1.3f);
-            }
-            gun.ShootPojectileAction += increaseSize();
+            int shootCount = 1;
+            foreach (ProjectilesToSpawn projectile in gun.projectiles)
+                projectile.objectToSpawn.transform.localScale = new Vector3(1.3f, 1.3f);
+            characterStats.OnReloadDoneAction += new Action<int>(increaseSize);
+            GameModeManager.AddHook("PointEnd", new Func<IGameModeHandler, IEnumerator>(MyHook));
 
-            System.Action<UnityEngine.GameObject> increaseSize()
+            void increaseSize(int i)
             {
-                foreach (var p in gun.projectiles)
-                {
-                    p.objectToSpawn.transform.localScale = new Vector3(p.objectToSpawn.transform.localScale.x + .1f, p.objectToSpawn.transform.localScale.y + .1f);
-                }
-                return null;
+                ++shootCount;
+                foreach (ProjectilesToSpawn projectile in gun.projectiles)
+                    projectile.objectToSpawn.transform.localScale = new Vector3((float)shootCount * 1.1f, (float)shootCount * 1.1f);
+            }
+
+            IEnumerator MyHook(IGameModeHandler gm)
+            {
+                shootCount = 1;
+                yield break;
             }
         }
 
@@ -40,7 +45,7 @@ namespace ZomC_Cards.Cards
 
         protected override string GetDescription()
         {
-            return "Increasingly large bullets";
+            return "Reload with a larger caliber each time";
         }
 
         protected override CardInfo.Rarity GetRarity()
