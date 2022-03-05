@@ -18,6 +18,7 @@ namespace ZomC_Cards.Cards
         {
             HealthBasedEffect effect = player.gameObject.AddComponent<HealthBasedEffect>();
             effect.characterStatModifiers.health *= 4f;
+            effect.SetPercThresholdMax(.1f);
         }
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)

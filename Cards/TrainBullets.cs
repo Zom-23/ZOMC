@@ -52,7 +52,8 @@ namespace ZomC_Cards.Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-            gun.reloadTimeAdd = .75f;
+            gun.reloadTimeAdd = .5f;
+            gun.damage = .7f;
         }
 
         protected override UnityEngine.GameObject GetCardArt()
@@ -82,15 +83,22 @@ namespace ZomC_Cards.Cards
                 new CardInfoStat
                 {
                     positive = true,
-                    stat = "ammo",
+                    stat = "Ammo",
                     amount = "+3",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 },
                 new CardInfoStat
                 {
                     positive = false,
+                    stat = "Damage",
+                    amount = "-30%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat
+                {
+                    positive = false,
                     stat = "Reload",
-                    amount = "+.75s",
+                    amount = "+.5s",
                     simepleAmount = CardInfoStat.SimpleAmount.aLittleBitOf
                 }
             };

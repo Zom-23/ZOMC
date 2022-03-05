@@ -37,7 +37,7 @@ namespace ZomC_Cards
     {
         private const string ModId = "com.Zom.rounds.card";
         private const string ModName = "Zom Cards";
-        public const string Version = "2.3.0"; //(major.minor.patch) Now out of Beta!
+        public const string Version = "2.4.0"; //(major.minor.patch) Now out of Beta!
 
         private static readonly AssetBundle zomcAssets = Jotunn.Utils.AssetUtils.LoadAssetBundleFromResources("zomcassets", typeof(ZomCards).Assembly);
         public static GameObject TrainBulletsArt = zomcAssets.LoadAsset<GameObject>("C_TrainBullets");
@@ -48,37 +48,38 @@ namespace ZomC_Cards
             
 
             UnityEngine.Debug.Log("[ZOMC] Loading Cards");
-            CustomCard.BuildCard<GymCard>();
-            CustomCard.BuildCard<DoubleVision>();
-            //CustomCard.BuildCard<FlappyBullets>();
-            CustomCard.BuildCard<TrainBullets>();
-            CustomCard.BuildCard<MassSilence>();
-            CustomCard.BuildCard<StayingAhead>();
-            CustomCard.BuildCard<AdaptiveMags>();
-            CustomCard.BuildCard<MoreIsBetter>();
+            //They are alphabetized :D
             CustomCard.BuildCard<ABulletForYou>();
-            CustomCard.BuildCard<Gluttony>();
-            CustomCard.BuildCard<Sloth>();
-            CustomCard.BuildCard<Wrath>();
-            CustomCard.BuildCard<Envy>();
-            CustomCard.BuildCard<Lust>();
-            CustomCard.BuildCard<Pride>();
-            CustomCard.BuildCard<Greed>();
-            CustomCard.BuildCard<PerseverancePristine>();
-            CustomCard.BuildCard<SlowReload>();
-            CustomCard.BuildCard<Bigger>();
-            CustomCard.BuildCard<PumpedUpKicks>();
-            CustomCard.BuildCard<LighterAmmo>();
-            //CustomCard.BuildCard<NineLives>();
-            CustomCard.BuildCard<Treadmill>();
-            CustomCard.BuildCard<Dumbells>();
-            CustomCard.BuildCard<BattleRopes>();
+            CustomCard.BuildCard<AdaptiveMags>();
             CustomCard.BuildCard<Barbell>();
-            CustomCard.BuildCard<PunchingBag>();
-            CustomCard.BuildCard<ProteinBar>();
-            CustomCard.BuildCard<SpareMag>();
-            CustomCard.BuildCard<Microscopic>();
+            CustomCard.BuildCard<BattleRopes>();
             CustomCard.BuildCard<BEEGGun>();
+            CustomCard.BuildCard<Bigger>();
+            CustomCard.BuildCard<DoubleVision>();
+            CustomCard.BuildCard<Dumbells>();
+            CustomCard.BuildCard<Envy>();
+            //CustomCard.BuildCard<FlappyBullets>();
+            CustomCard.BuildCard<Gluttony>();
+            CustomCard.BuildCard<Greed>();
+            CustomCard.BuildCard<GymCard>();
+            CustomCard.BuildCard<LighterAmmo>();
+            CustomCard.BuildCard<Lust>();
+            CustomCard.BuildCard<MassSilence>();
+            CustomCard.BuildCard<Microscopic>();
+            CustomCard.BuildCard<MoreIsBetter>();
+            CustomCard.BuildCard<NineLives>();
+            CustomCard.BuildCard<PerseverancePristine>();
+            CustomCard.BuildCard<Pride>();
+            CustomCard.BuildCard<ProteinBar>();
+            CustomCard.BuildCard<PumpedUpKicks>();
+            CustomCard.BuildCard<PunchingBag>();
+            CustomCard.BuildCard<Sloth>();
+            CustomCard.BuildCard<SlowReload>();
+            CustomCard.BuildCard<SpareMag>();
+            CustomCard.BuildCard<StayingAhead>();
+            CustomCard.BuildCard<TrainBullets>();
+            CustomCard.BuildCard<Treadmill>();
+            CustomCard.BuildCard<Wrath>();
         }
     }
 }

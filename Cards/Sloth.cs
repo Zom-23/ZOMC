@@ -31,9 +31,11 @@ namespace ZomC_Cards.Cards
                 {
                     if (p.teamID != player.teamID)
                     {
-                        p.data.stats.RPCA_AddSlow(2);
+                        p.data.stats.RPCA_AddSlow(.2f);
                     }
                 }
+                player.ExecuteAfterSeconds(3f, () =>
+                { SlowAll(gm); });
                 yield break;
             }
         }
@@ -45,6 +47,7 @@ namespace ZomC_Cards.Cards
             statModifiers.movementSpeed = .8f;
             statModifiers.lifeSteal = 1.5f;
             statModifiers.secondsToTakeDamageOver = 3f;
+            statModifiers.health = 1.2f;
         }
 
         protected override GameObject GetCardArt()
@@ -79,6 +82,13 @@ namespace ZomC_Cards.Cards
                     stat = "Life Steal",
                     amount = "+50%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
+                },
+                new CardInfoStat
+                {
+                    positive = true,
+                    stat = "Health",
+                    amount = "+20%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat
                 {

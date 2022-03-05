@@ -24,7 +24,7 @@ namespace ZomC_Cards.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             int reloadCount = 0;
-            gunAmmo.maxAmmo = 3;
+            gunAmmo.maxAmmo += 3;
 
             GameModeManager.AddHook(GameModeHooks.HookPointStart, MyHook);
             IEnumerator MyHook(IGameModeHandler gm)
@@ -48,7 +48,7 @@ namespace ZomC_Cards.Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers)
         {
-            gun.reloadTimeAdd = (gun.reloadTime * -.5f);
+            gun.reloadTimeAdd = (gun.reloadTime * -.25f);
         }
 
 
@@ -75,14 +75,14 @@ namespace ZomC_Cards.Cards
                 {
                     positive = true,
                     stat = "Reload",
-                    amount = "-50%",
+                    amount = "-25%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLotLower
                 },
                 new CardInfoStat
                 {
                     positive = true,
                     stat = "ammo",
-                    amount = "3",
+                    amount = "+3",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

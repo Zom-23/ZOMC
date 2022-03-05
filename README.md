@@ -10,8 +10,8 @@ Double Vision			Barbell
 Train Bullets			Punching Bag
 Mass Silence			Protein Bar
 Staying Ahead			Spare Mag
-Adaptive Magazines
-More Is Better
+Adaptive Magazines		BEEG Gun
+More Is Better			Microscopic
 A Bullet For You
 Gluttony
 Sloth

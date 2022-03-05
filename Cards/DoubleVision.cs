@@ -35,8 +35,9 @@ namespace ZomC_Cards.Cards
             objectsToSpawns.Add(doubleVi);
             gun.objectsToSpawn = objectsToSpawns.ToArray();
 
-            gun.multiplySpread = .1f;
+            gun.multiplySpread = .5f;
             gun.spread = .5f;
+            gun.reloadTimeAdd = .25f;
             //gun.evenSpread = .5f;
         }
 
@@ -54,7 +55,7 @@ namespace ZomC_Cards.Cards
 
         protected override CardInfo.Rarity GetRarity()
         {
-            return CardInfo.Rarity.Common;
+            return CardInfo.Rarity.Uncommon;
         }
 
         protected override CardInfoStat[] GetStats()

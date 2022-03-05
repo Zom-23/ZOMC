@@ -18,8 +18,9 @@ namespace ZomC_Cards.Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.damage = 1.4f;
+            gun.damage = 1.6f;
             gun.reloadTimeAdd = .25f;
+            statModifiers.sizeMultiplier = 1.3f;
         }
 
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
@@ -50,7 +51,7 @@ namespace ZomC_Cards.Cards
                 {
                     positive = true,
                     stat = "Damage",
-                    amount = "+40%",
+                    amount = "+60%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 },
                 new CardInfoStat
@@ -58,6 +59,13 @@ namespace ZomC_Cards.Cards
                     positive = false,
                     stat = "Reload Time",
                     amount = "+.25s",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat
+                {
+                    positive = false,
+                    stat = "Size",
+                    amount = "+30%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };

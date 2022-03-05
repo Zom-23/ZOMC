@@ -86,6 +86,9 @@ namespace ZomC_Cards.Cards
         {
             cardInfo.allowMultiple = true;
             cardInfo.categories = new CardCategory[] { CardChoiceSpawnUniqueCardPatch.CustomCategories.CustomCardCategories.instance.CardCategory("CardManipulation") };
+            statModifiers.health = .75f;
+            statModifiers.movementSpeed = .75f;
+            gun.damage = .8f;
         }
 
         protected override GameObject GetCardArt()
@@ -105,7 +108,30 @@ namespace ZomC_Cards.Cards
 
         protected override CardInfoStat[] GetStats()
         {
-            return null;
+            return new CardInfoStat[]
+            {
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Health",
+                    amount = "-25%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Movement Speed",
+                    amount = "-25%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat()
+                {
+                    positive = false,
+                    stat = "Damage",
+                    amount = "-20%",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                }
+            };
         }
 
         protected override CardThemeColor.CardThemeColorType GetTheme()

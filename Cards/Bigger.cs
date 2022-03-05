@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnboundLib.Cards;
-using UnityEngine;
 using UnboundLib.GameModes;
-using System.Collections;
+using UnityEngine;
 
 namespace ZomC_Cards.Cards
 {
@@ -15,22 +14,18 @@ namespace ZomC_Cards.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             int shootCount = 1;
-            foreach(var p in gun.projectiles)
-            {
-                p.objectToSpawn.transform.localScale = new Vector3(1.1f, 1.1f);
-            }
-            characterStats.OnReloadDoneAction += increaseSize; //Make sure the bursts is always equal to the max ammo by checking it after each reload
+            foreach (ProjectilesToSpawn projectile in gun.projectiles)
+                projectile.objectToSpawn.transform.localScale = new Vector3(1.3f, 1.3f);
+            characterStats.OnReloadDoneAction += new Action<int>(increaseSize);
+            GameModeManager.AddHook("PointEnd", new Func<IGameModeHandler, IEnumerator>(MyHook));
 
             void increaseSize(int i)
             {
-                shootCount++;
-                foreach (var p in gun.projectiles)
-                {
-                    p.objectToSpawn.transform.localScale = new Vector3(shootCount * 1.1f, shootCount * 1.1f);
-                }
+                ++shootCount;
+                foreach (ProjectilesToSpawn projectile in gun.projectiles)
+                    projectile.objectToSpawn.transform.localScale = new Vector3((float)shootCount * 1.1f, (float)shootCount * 1.1f);
             }
 
-            GameModeManager.AddHook(GameModeHooks.HookPointEnd, MyHook);
             IEnumerator MyHook(IGameModeHandler gm)
             {
                 shootCount = 1;

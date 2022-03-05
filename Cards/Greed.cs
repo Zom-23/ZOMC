@@ -59,6 +59,11 @@ namespace ZomC_Cards
             }
         }
 
+        public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
+        {
+            gun.ammo = -1;
+        }
+
         protected override GameObject GetCardArt()
         {
             return null;
@@ -80,10 +85,17 @@ namespace ZomC_Cards
             {
                 new CardInfoStat
                 {
-                positive = true,
+                positive = false,
                 stat = "Ability Cooldown",
                 amount = "1s",
                 simepleAmount = CardInfoStat.SimpleAmount.Some
+                },
+                new CardInfoStat
+                {
+                    positive = false,
+                    stat = "Ammo",
+                    amount = "-1",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
         }

@@ -17,8 +17,8 @@ namespace ZomC_Cards.Cards
 
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
-            gun.projectileSpeed = 1.5f;
-            statModifiers.movementSpeed = 1.3f;
+            gun.projectileSpeed = 1.3f;
+            statModifiers.movementSpeed = 1.2f;
         }
 
         protected override GameObject GetCardArt()
@@ -44,14 +44,14 @@ namespace ZomC_Cards.Cards
                 {
                     positive = true,
                     stat = "Bullet Speed",
-                    amount = "+50%",
+                    amount = "+30%",
                     simepleAmount = CardInfoStat.SimpleAmount.aLotOf
                 },
                 new CardInfoStat
                 {
                     positive = true,
                     stat = "Movement Speed",
-                    amount = "+30%",
+                    amount = "+20%",
                     simepleAmount = CardInfoStat.SimpleAmount.Some
                 }
             };

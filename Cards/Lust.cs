@@ -29,28 +29,7 @@ namespace ZomC_Cards.Cards
             });
 
             gun.objectsToSpawn = list.ToArray();
-
-
-            /*System.Random random = new System.Random();
-            int chanceNeed = data.currentCards.Where(card => card.cardName == "Sin: Lust").Count() * 50;
-
-            characterStats.DealtDamageAction += charm;
-            void charm(Vector2 damage, bool selfDamage)
-            {
-                int chance = 0;
-                chance = random.Next(1, 100);
-                if (chance <= chanceNeed)
-                {
-                    RPCA_Charm(chance, player.data.lastDamagedPlayer);
-                }
-            }*/
         }
-        /*
-        private void RPCA_Charm(int roll, Player p)
-        {
-            p.data.gameObject.GetComponent<SilenceHandler>().RPCA_AddSilence(2f);
-        }
-        */
 
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
@@ -61,6 +40,7 @@ namespace ZomC_Cards.Cards
         public override void SetupCard(CardInfo cardInfo, Gun gun, ApplyCardStats cardStats, CharacterStatModifiers statModifiers, Block block)
         {
             cardInfo.allowMultiple = false;
+            gun.damage = .75f;
         }
 
         protected override GameObject GetCardArt()
@@ -94,6 +74,13 @@ namespace ZomC_Cards.Cards
                     positive = true,
                     stat = "Charm Time",
                     amount = "2s",
+                    simepleAmount = CardInfoStat.SimpleAmount.notAssigned
+                },
+                new CardInfoStat
+                {
+                    positive = false,
+                    stat = "Damage",
+                    amount = "-25%",
                     simepleAmount = CardInfoStat.SimpleAmount.notAssigned
                 }
             };
