@@ -18,14 +18,14 @@ namespace ZomC_Cards.Cards
         public override void OnAddCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
         {
             Player[] players = PlayerManager.instance.players.ToArray();
-            List<CardInfo> rareCards = new List<CardInfo>();
+            List<CardInfo> rareCards = new List<CardInfo>(); //viable cards
             List<CardInfo> cardsToAdd = new List<CardInfo>();
             List<CardInfo> enemyCards;
             foreach (Player p in players.Where(p => p.playerID != player.playerID && p.teamID != player.teamID))
             {
                 enemyCards = p.data.currentCards.ToList();
 
-                foreach (CardInfo c in enemyCards.Where(c => c.rarity.Equals(CardInfo.Rarity.Rare) && ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, c)))
+                foreach (CardInfo c in enemyCards.Where(c => /*c.rarity.Equals(CardInfo.Rarity.Rare) &&*/ ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, c)))
                 {
                     rareCards.Add(c);
                 }
@@ -37,7 +37,7 @@ namespace ZomC_Cards.Cards
                     //var randomCard = rareCards[randomNum];
                     //ModdingUtils.Utils.Cards.instance.AddCardToPlayer(player, randomCard, false, "", 0, 0, true);
                     //ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, randomCard);
-                }
+                }/*
                 else
                 {
                     foreach (CardInfo c in enemyCards.Where(c => c.rarity.Equals(CardInfo.Rarity.Uncommon) && ModdingUtils.Utils.Cards.instance.PlayerIsAllowedCard(player, c)))
@@ -69,7 +69,7 @@ namespace ZomC_Cards.Cards
                             //ModdingUtils.Utils.CardBarUtils.instance.ShowAtEndOfPhase(player, randomCard);
                         }
                     }
-                }
+                }*/
                 enemyCards.Clear();
                 rareCards.Clear();
             }
@@ -79,6 +79,7 @@ namespace ZomC_Cards.Cards
             {
                 ModdingUtils.Utils.Cards.instance.AddCardsToPlayer(player, _cardsToAdd, false, null, null, null, true);
             });
+            cardsToAdd.Clear();
             
         }
 
@@ -98,7 +99,7 @@ namespace ZomC_Cards.Cards
 
         protected override string GetDescription()
         {
-            return "Copy a random valid card from each other opponent of the highest rarity";
+            return "Copy a random valid card from each other opponent";
         }
 
         protected override CardInfo.Rarity GetRarity()

@@ -20,6 +20,7 @@ namespace ZomC_Cards.Cards
         {
             gun.bursts = 2;
             gun.projectileSpeed = 1.3f;
+            gun.timeBetweenBullets = .01f;
         }
 
         public override void OnRemoveCard(Player player, Gun gun, GunAmmo gunAmmo, CharacterData data, HealthHandler health, Gravity gravity, Block block, CharacterStatModifiers characterStats)
