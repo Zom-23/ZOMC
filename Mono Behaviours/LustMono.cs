@@ -42,6 +42,7 @@ namespace ZomC_Cards.MonoBehaviours
             SilenceHandler component = hit.transform.GetComponent<SilenceHandler>();
             this.rand = new System.Random();
             this.chance = rand.Next(100);
+            base.GetComponent<PhotonView>().RPC("RPCA_SetChance", RpcTarget.All, new object[] { chance });
             if (chance <= 50)
             {
                 component.RPCA_AddSilence(2f);
@@ -63,6 +64,12 @@ namespace ZomC_Cards.MonoBehaviours
         public void Destroy()
         {
             UnityEngine.Object.Destroy(this);
+        }
+
+        [PunRPC]
+        public void RPCA_SetChance(int chance)
+        {
+            this.chance = chance;
         }
     }
 }
